@@ -1,0 +1,16 @@
+$primary:rgb(21, 124, 207);
+$primary1:rgba(228, 231, 37, 0.7);
+$secondary: rgb(228, 231, 37);
+$font1:   'Gabarito', sans-serif;
+
+
+
+@keyframes flip {
+    0% {
+      transform: perspective(800px) rotateY(0);
+    }
+    100% {
+      transform: perspective(800px) rotateY(180deg);
+    }
+  }
+

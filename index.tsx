@@ -2,14 +2,14 @@ import React from 'react'
 import Navbar from '../components/Navbar';
 import Welcoming_page from '../components/Welcoming_page';
 import Suggestion_livres from '../components/Suggestion_livres';
-import Head from 'next/head';
+// import RootLayout from '../layout';
 
 export default function page() {
   return (
     <>
-       <Head>
+        <head>
           <title>Accueil</title>
-       </Head>
+        </head>
         <div className="accueil">
           {/* ---------------barre de navigation--------------- */}
           <Navbar />

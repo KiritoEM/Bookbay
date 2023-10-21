@@ -1,0 +1,17 @@
+@import './Settings.scss';
+@import './../styles/Accueil/Navbar.scss';
+@import './../styles/Accueil/Welcoming.scss';
+@import './../styles/Accueil/Waves_animations.scss';
+@import './../styles/Accueil/suggestion.scss';
+
+.accueil{
+    width: 100%;
+    overflow: hidden;
+}
+
+*{
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    margin: 0;
+}

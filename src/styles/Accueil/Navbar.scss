@@ -1,0 +1,178 @@
+.nav {
+     position: fixed;
+     z-index: 250;
+     box-shadow: 0 3px 2px rgba(41, 40, 40, 0.37);
+
+     &_primary {
+          padding-bottom: 1rem;
+          padding-top: 1rem;
+          background-color: #fff;
+
+          .contain {
+               max-width: 93%;
+               position: relative;
+               left: 3.5%;
+               justify-content: space-between;
+
+               .logo {
+
+                    .image {
+
+                         img {
+                              width: 75px;
+                              height: 75px;
+                         }
+                    }
+
+                    .title {
+                         margin-top: 1rem;
+                         margin-left: 5%;
+
+                         h1 {
+                              font-family: $font1;
+                              font-weight: bold;
+                              font-size: 35px;
+
+                              span {
+                                   color: $primary;
+                              }
+                         }
+                    }
+
+               }
+
+               .search_bar {
+                    position: relative;
+                    left:-2%;
+                    top: 0.8rem;
+
+                    .form-control:focus {
+                         box-shadow: none;
+                         border: 1.7px solid #E3E6ED;
+                         background-color: hsl(230, 60%, 98%);
+                         letter-spacing: 1px;
+                    }
+
+                    .form-control {
+                         width: 120%;
+                         font-size: 20px;
+                         background-color: #f3f3f3cb;
+                         height: 3rem;
+                         box-shadow: 0 1.2px 2.5px rgba(104, 101, 101, 0.473);
+                         border: 0.8px solid rgba(85, 85, 85, 0.486);
+                    }
+
+                    #search {
+                         position: relative;
+                         left: 14%;
+
+                         .btn {
+                              background-color: $primary;
+                              border-top-right-radius: 8px;
+                              border-bottom-right-radius: 8px;
+                              padding-top: 0.62rem;
+                              height: 100%;
+                              padding-bottom: 0.4rem;
+                              color: aliceblue;
+                              font-size: 20px;
+                         }
+
+                         .btn:focus {
+                              box-shadow: none;
+                         }
+
+                    }
+
+               }
+
+               .iconesHero {
+                    position: relative;
+                    left: -2%;
+                    top: 1.2rem;
+
+
+                    &_container {
+                         justify-content: center;
+                         gap: 18px;
+
+                         .cart {
+                              margin-top: -0.5rem;
+                              
+                              .icon {
+                                   font-size: 29px;
+                                   color: rgb(41, 40, 40);
+                              }
+
+                              .count {
+                                   position: relative;
+                                   left: 4%;
+                                   top: -0.4rem;
+
+                                   p {
+                                        padding: 4px;
+                                        padding-left: 9px;
+                                        padding-right: 9px;
+                                        font-size: 15px;
+                                        font-weight: bold;
+                                        color: #fff;
+                                        border-radius: 50%;
+                                        background-color: $primary;
+                                   }
+                              }
+
+                         }
+
+                         .user {
+                
+
+                              i {
+                                   font-size: 29px;
+                                   color: rgb(41, 40, 40);
+                              }
+                         }
+                    }
+               }
+          }
+     }
+
+     &_secondary{
+          
+           background-color: $primary;
+           height: 4rem;
+
+            .contain{
+                 
+                .toggle{
+
+                      ul{
+                          gap: 50px;
+
+                           a{
+                              text-decoration: none;
+                              padding: 16.5px;
+                              color: #fff;
+
+                              &:hover{
+                                   background-color: $secondary;
+                                   color: #111111;
+                                   border-radius: 4px;
+                              }
+
+                              li{
+                                    font-size: 21px;
+                                    font-weight: 600;
+                              }
+
+                              
+                           }
+
+                           .active{
+                              background-color: $secondary;  
+                              color: #111111;
+                              border-radius: 4px;
+                          }
+                      }
+                }
+            }
+     }
+}
