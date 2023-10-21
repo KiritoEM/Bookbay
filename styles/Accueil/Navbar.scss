@@ -55,7 +55,7 @@
 
                     .form-control {
                          width: 120%;
-                         font-size: 20px;
+                         font-size: 18px;
                          background-color: #f3f3f3cb;
                          height: 3rem;
                          box-shadow: 0 1.2px 2.5px rgba(104, 101, 101, 0.473);
@@ -72,7 +72,7 @@
                               border-bottom-right-radius: 8px;
                               padding-top: 0.42rem;
                               height: 100%;
-                              padding-bottom: 0.54rem;
+                              padding-bottom: 0.6rem;
                               color: aliceblue;
                               font-size: 20px;
                          }
@@ -138,7 +138,7 @@
      &_secondary{
           
            background-color: $primary;
-           height: 4rem;
+           height: 3.23rem;
 
             .contain{
                  
@@ -149,7 +149,7 @@
 
                            a{
                               text-decoration: none;
-                              padding: 16.5px;
+                              padding: 11px;
                               color: #fff;
 
                               &:hover{
@@ -159,7 +159,7 @@
                               }
 
                               li{
-                                    font-size: 21px;
+                                    font-size: 20px;
                                     font-weight: 600;
                               }
 
