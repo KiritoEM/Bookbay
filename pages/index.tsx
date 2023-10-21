@@ -1,5 +1,5 @@
 import React from 'react'
-import Nav from '@/components/Nav';
+import Nav from '../components/Nav';
 import Welcoming_page from '../components/Welcoming_page';
 import Suggestion_livres from '../components/Suggestion_livres';
 import Head from 'next/head';
