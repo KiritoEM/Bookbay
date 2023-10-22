@@ -13,12 +13,19 @@
 
    &_container {
       overflow: hidden;
-      height: 77.7vh;
+      min-height: 77vh;
 
-
+      @include screen(small) {
+         min-height: 72vh;
+      }
+      
       .welcom_desc {
          padding: 15px;
          margin-top: 34vh;
+
+         @include screen(small) {
+            margin-top: 27vh;
+         }
 
          .main-title {
 
@@ -38,7 +45,7 @@
                }
 
                @include screen(small) {
-                  font-size: 39.5px;
+                  font-size: 2.69em;
                }
 
                @media screen and (max-width:1156px) and (min-width:1024px) {
@@ -52,12 +59,16 @@
          .boutons_list {
             margin-top: 3rem;
 
+             @include screen(small){
+               margin-top: 1.8rem;
+             }
+
             .list_button {
 
                button {
-                  padding: 0.65rem 3.5rem 0px 3.5rem;
+                  padding: 0.72rem 3.5rem 0px 3.5rem;
                   text-transform: uppercase;
-                  border: 6px solid $secondary;
+                  border: 4.7px solid $secondary;
                   background-color: rgba(26, 25, 24, 0.397);
                   color: #fff;
                   border-radius: 15px;
@@ -95,10 +106,15 @@
       overflow: hidden;
       filter: brightness(110%);
       height: 23vh;
+      margin-top: 2rem;
+
+      @include screen(small) {
+         height: 30vh;
+      }
 
       .waves_container {
          .waves {
-            height: 40vh;
+            height: 23vh;
             width: 114%;
             object-fit: cover;
 
@@ -106,8 +122,9 @@
                width: 140%;
             }
 
-            @include screen (medium) {
-               width: 150%;
+            @include screen (small) {
+               width: 170%;
+               height: 30vh;
             }
          }
 
