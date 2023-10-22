@@ -32,7 +32,7 @@ const List_livres: React.FC = () => {
 
         <div className="row gx-4 gy-4" id="content">
           {data.map((book) => (
-            <div className="col-6 col-lg-4" key={book.id}>
+            <div className="col-md-6 col-lg-4" key={book.id}>
               <article className="box bg-light">
                 <div className="box_image">
                   <span className='image'>
