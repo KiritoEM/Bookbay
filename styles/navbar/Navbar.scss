@@ -241,8 +241,19 @@
 
                               .search_bar {
                                    margin-left: 0%;
+                                   width: 100%;
 
-                                   @include screen(small) {}
+
+                                   @media screen and (max-width: 356px) {
+                                        min-width: calc(105%);
+                                        position: relative;
+                                        right: 5%;
+                                   }
+
+                                   @include screen(small){
+                                       margin-left: 2%;
+
+                                   }
 
                                    .form-control:focus {
                                         box-shadow: none;
@@ -259,12 +270,21 @@
                                         box-shadow: 0 1.2px 2.5px rgba(104, 101, 101, 0.473);
                                         border: 0.8px solid rgba(85, 85, 85, 0.486);
 
+                                        @media screen and (max-width: 356px) {
+                                             width: 100%;
+                                        }
+
 
                                    }
 
                                    #search {
                                         position: relative;
                                         left: 0%;
+
+                                        
+     
+
+                                          
 
                                         .btn {
                                              background-color: $primary;
