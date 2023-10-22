@@ -9,6 +9,11 @@
           padding-top: 1rem;
           background-color: #fff;
 
+          @include screen (medium){
+               padding-bottom: 1.2rem;
+               padding-top: 0.5rem;
+          }
+
           .contain {
                max-width: 93%;
                position: relative;
@@ -22,12 +27,23 @@
                          img {
                               width: 75px;
                               height: 75px;
+
+
+                         @include screen (medium){
+                              width: 62px;
+                              height: 62px;
                          }
+                         }
+
                     }
 
                     .title {
                          margin-top: 1rem;
                          margin-left: 5%;
+
+                         @include screen (medium){
+                              margin-top: 1.2rem;
+                         }
 
                          h1 {
                               font-family: $font1;
@@ -36,6 +52,10 @@
 
                               span {
                                    color: $primary;
+                              }
+
+                              @include screen (medium){
+                                   font-size: 31.4px;
                               }
                          }
                     }
@@ -144,7 +164,13 @@
                 .toggle{
 
                       ul{
-                          gap: 50px;
+                          gap: 46px;
+
+                          @include screen (medium){
+                              gap: 30px;
+                          }
+
+
 
                            a{
                               text-decoration: none;
