@@ -2,6 +2,7 @@
      position: fixed;
      z-index: 250;
      box-shadow: 0 3px 2px rgba(41, 40, 40, 0.37);
+     box-sizing: content-box;
 
      &_primary {
           padding-bottom: 1rem;
