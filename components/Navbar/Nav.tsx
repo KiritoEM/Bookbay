@@ -19,7 +19,6 @@ const Nav : React.FC = () => {
   setOpen(false);
 }
 
-
     return (
       <div className="nav w-100">
         <div className="nav_primary w-100">
