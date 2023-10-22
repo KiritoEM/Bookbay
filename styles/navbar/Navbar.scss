@@ -2,6 +2,11 @@
      position: fixed;
      z-index: 250;
      box-shadow: 0 3px 2px rgba(41, 40, 40, 0.37);
+     box-sizing: content-box;
+
+     @include screen (small) {
+          box-shadow: 0 5px 8px rgba(41, 40, 40, 0.37);
+     }
 
      &_primary {
           padding-bottom: 1rem;
@@ -197,7 +202,7 @@
 
                          @include screen (small) {
                               gap: 0px;
-                              margin-right: 3%;
+                              margin-right: 8%;
                               margin-top: 0.6rem;
                          }
 
@@ -238,17 +243,9 @@
                                    margin-left: 0%;
                                    width: 100%;
 
-
-                                   @media screen and (max-width: 356px) {
-                                        min-width: calc(105%);
-                                        position: relative;
-                                        right: 5%;
-                                   }
-
                                    @include screen(small){
-                                       margin-left: -2%;
-                                       width: calc(96% + 24px); 
-                                       padding-left: 5%;
+                                       margin-left: -3%;
+                                       width: calc(100% + 44px); 
                                    }
 
                                    @media screen and (max-width: 340px) {
