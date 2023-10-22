@@ -244,8 +244,13 @@
                                    width: 100%;
 
                                    @include screen(small){
-                                       margin-left: 2%;
-                                       width: calc(100% + 60px); 
+                                       margin-left: -3%;
+                                       width: calc(100% + 44px); 
+                                   }
+
+                                   @media screen and (max-width: 340px) {
+                                        margin-left: -10%;
+                                       width: calc(100% + 44px); 
                                    }
 
                                    .form-control:focus {

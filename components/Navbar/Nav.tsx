@@ -92,7 +92,7 @@ const Nav : React.FC = () => {
 
                 <a className="d-md-none">
                   <div className="search_bar d-flex justify-content-center">
-                    <div className="input-group d-flex">
+                    <div className="input-group d-flex justify-content-center">
                       <div className="input1">
                         <input
                           type="text"
