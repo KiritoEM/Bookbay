@@ -31,6 +31,8 @@ $font2: 'Tilt Neon', sans-serif;
 
 //{--------------------------responsive mixin-----------------------------}*
 @mixin screen($breakpoint) {
+
+ 
   @if $breakpoint ==small {
     @media (max-width: 767px) {
       @content;

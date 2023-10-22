@@ -45,7 +45,8 @@
                }
 
                @include screen(small) {
-                  font-size: 2.6em;
+                  display: none;
+                  font-size: 2.5em;
                }
 
                @media screen and (max-width:1156px) and (min-width:1024px) {
