@@ -22,13 +22,16 @@
 
          .main-title {
 
-
             h1 {
                color: #fff;
                font-size: 58px;
                font-family: $font1;
                text-shadow: 0 2px 22px rgb(44, 43, 43);
                font-weight: bold;
+
+               @include screen (medium){
+                  font-size:3.6em;
+               }
 
                span {
                   color: $secondary;
@@ -54,6 +57,11 @@
                    font-family: $font1;
                    box-shadow: 0 1px 20px rgb(44, 44, 43);
 
+                   @include screen (medium){
+                     font-size: 22px;
+                     padding: 0.6rem 4rem 0px 4rem;
+                  }
+
                      i{
                          font-size: 35px
                      }
@@ -72,17 +80,18 @@
       height: 23vh;
 
       .waves_container {
-       
-
          .waves {
             height: 40vh;
             width: 114%;
             object-fit: cover;
+
+            @include screen (medium){
+               width: 140%;
+            }
          }
 
       }
    }
 }
 
-//  -------------------------------animations waves------------------------------
 
