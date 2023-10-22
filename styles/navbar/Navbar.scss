@@ -179,6 +179,10 @@
           height: 3.23rem;
           z-index: 150;
 
+           @include screen(small){
+               height: 3.53rem;
+           }
+
 
           .contain {
 
@@ -193,7 +197,7 @@
                          z-index: 20;
                          background-color: #0c5a7e;
                          position: relative;
-                         top: 3.21rem;
+                         top: 3.47rem;
                          left: 0%;
                     }
 
@@ -248,7 +252,7 @@
                                        width: calc(100% + 44px); 
                                    }
 
-                                   @media screen and (max-width: 340px) {
+                                   @media screen and (max-width: 410px) {
                                         margin-left: -10%;
                                        width: calc(100% + 44px); 
                                    }
