@@ -78,7 +78,12 @@ const Nav : React.FC = () => {
                 <Link href="#" className="active" onClick={ClickItem}>
                   <li>Accueil</li>
                 </Link>
-                <a onClick={()=>{scroll();ClickItem()}}>
+                <a
+                  onClick={() => {
+                    scroll();
+                    ClickItem();
+                  }}
+                >
                   <li>Listes des livres</li>
                 </a>
                 <Link href="" onClick={ClickItem}>
@@ -87,7 +92,7 @@ const Nav : React.FC = () => {
 
                 <a className="d-md-none">
                   <div className="search_bar d-flex justify-content-center">
-                    <div className="input-group d-flex justify-content-center">
+                    <div className="input-group d-flex">
                       <div className="input1">
                         <input
                           type="text"
@@ -95,7 +100,7 @@ const Nav : React.FC = () => {
                           placeholder="Recherchez un livre..."
                         />
                       </div>
-                      <div className="input-group-append h-100" id="search">
+                      <div className="input-group-append" id="search">
                         <button className="btn">
                           <i className="fa fa-search"></i>
                         </button>
