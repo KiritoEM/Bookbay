@@ -2,14 +2,13 @@
      position: fixed;
      z-index: 250;
      box-shadow: 0 3px 2px rgba(41, 40, 40, 0.37);
-     box-sizing: content-box;
 
      &_primary {
           padding-bottom: 1rem;
           padding-top: 1rem;
           background-color: #fff;
 
-          @include screen (medium){
+          @include screen (medium) {
                padding-bottom: 1.2rem;
                padding-top: 0.5rem;
           }
@@ -29,10 +28,15 @@
                               height: 75px;
 
 
-                         @include screen (medium){
-                              width: 62px;
-                              height: 62px;
-                         }
+                              @include screen (medium) {
+                                   width: 62px;
+                                   height: 62px;
+                              }
+
+                              @include screen(small) {
+                                   width: 58px;
+                                   height: 60px;
+                              }
                          }
 
                     }
@@ -41,7 +45,7 @@
                          margin-top: 1rem;
                          margin-left: 5%;
 
-                         @include screen (medium){
+                         @include screen (medium) {
                               margin-top: 1.2rem;
                          }
 
@@ -54,8 +58,12 @@
                                    color: $primary;
                               }
 
-                              @include screen (medium){
+                              @include screen (medium) {
                                    font-size: 31.4px;
+                              }
+
+                              @include screen(small) {
+                                   font-size: 30.8px;
                               }
                          }
                     }
@@ -64,8 +72,12 @@
 
                .search_bar {
                     position: relative;
-                    left:-2%;
+                    left: -2%;
                     top: 0.8rem;
+
+                    @include screen(small) {
+                         display: none;
+                    }
 
                     .form-control:focus {
                          box-shadow: none;
@@ -81,6 +93,8 @@
                          height: 3rem;
                          box-shadow: 0 1.2px 2.5px rgba(104, 101, 101, 0.473);
                          border: 0.8px solid rgba(85, 85, 85, 0.486);
+
+
                     }
 
                     #search {
@@ -99,7 +113,7 @@
                          }
 
                          .btn:focus {
-                              box-shadow: none;
+                              
                          }
 
                     }
@@ -117,7 +131,7 @@
 
                          .cart {
                               margin-top: -0.5rem;
-                              
+
                               .icon {
                                    font-size: 29px;
                                    color: rgb(41, 40, 40);
@@ -143,7 +157,7 @@
                          }
 
                          .user {
-                
+
 
                               i {
                                    font-size: 29px;
@@ -155,49 +169,162 @@
           }
      }
 
-     &_secondary{
-           background-color: $primary;
-           height: 3.23rem;
-
-            .contain{
-                 
-                .toggle{
-
-                      ul{
-                          gap: 46px;
-
-                          @include screen (medium){
-                              gap: 30px;
-                          }
+     &_secondary {
+          background-color: $primary;
+          height: 3.23rem;
+          z-index: 150;
 
 
+          .contain {
 
-                           a{
+               .toggle {
+
+                    @include screen(small) {
+                         width: 100%;
+                         overflow: hidden;
+                         z-index: 5;
+                         border-bottom-left-radius: 5px;
+                         border-bottom-right-radius: 5px;
+                         z-index: 20;
+                         background-color: #0c5a7e;
+                         position: relative;
+                         top: 3.21rem;
+                         left: 0%;
+                    }
+
+                    ul {
+                         gap: 46px;
+
+                         @include screen (small) {
+                              gap: 0px;
+                              margin-right: 8%;
+                              margin-top: 0.6rem;
+                         }
+
+
+
+                         a{
                               text-decoration: none;
                               padding: 11px;
                               color: #fff;
                               cursor: pointer;
 
-                              &:hover{
+                              @include screen(small) {
+                                   padding: 21px;
+                              }
+
+                              &:hover {
                                    background-color: $secondary;
                                    color: #111111;
                                    border-radius: 4px;
+
+                                   @include screen(small) {
+                                        background-color: rgba(0, 0, 0, 0);
+                                        color: #fff;
+                                   }
                               }
 
-                              li{
-                                    font-size: 20px;
-                                    font-weight: 600;
-                              }
- 
-                           }
+                              li {
+                                   font-size: 20px;
+                                   font-weight: 600;
 
-                           .active{
-                              background-color: $secondary;  
+                                   @include screen(small) {
+                                        margin-top: -0.3rem;
+                                        font-size: 24.5px;
+                                   }
+                              }
+
+                              .search_bar {
+                                   margin-left: 0%;
+
+                                   @include screen(small) {}
+
+                                   .form-control:focus {
+                                        box-shadow: none;
+                                        border: 1.7px solid #E3E6ED;
+                                        background-color: hsl(230, 60%, 98%);
+                                        letter-spacing: 1px;
+                                   }
+
+                                   .form-control {
+                                        width: 110%;
+                                        font-size: 18px;
+                                        background-color: #fff;
+                                        height: 3rem;
+                                        box-shadow: 0 1.2px 2.5px rgba(104, 101, 101, 0.473);
+                                        border: 0.8px solid rgba(85, 85, 85, 0.486);
+
+
+                                   }
+
+                                   #search {
+                                        position: relative;
+                                        left: 0%;
+
+                                        .btn {
+                                             background-color: $primary;
+                                             border-top-right-radius: 8px;
+                                             border-bottom-right-radius: 8px;
+                                             padding-top: 0.42rem;
+                                             height: 100%;
+                                             padding-bottom: 0.58rem;
+                                             color: aliceblue;
+                                             font-size: 20px;
+                                        }
+
+                                        .btn:focus {
+                                             box-shadow: none;
+                                        }
+
+                                   }
+
+                              }
+
+                         }
+
+                         .active {
+                              background-color: $secondary;
                               color: #111111;
                               border-radius: 4px;
-                          }
-                      }
-                }
-            }
+
+                              @include screen(small) {
+                                   color: #fff;
+                                   background-color: rgba(0, 255, 255, 0);
+                                   padding: 21px;
+                              }
+                         }
+                    }
+               }
+
+               .hamburger_button {
+                    position: fixed;
+                    margin-top: .45rem;
+                    right: 6%;
+
+                    h1 {
+                         font-size: 25px;
+                         font-weight: bold;
+                         color: #fff;
+                         text-shadow: 0 1px 4px rgba(70, 66, 66, 0.555);
+                         font-family: $font1;
+
+                         #bar {
+                              border: 2px solid #fff;
+                              padding: 4px;
+                              border-radius: 50%;
+                         }
+                    }
+               }
+          }
      }
+}
+
+.open_ {
+     height: 18.5rem;
+     transition: 0.16s ease-in;
+}
+
+.close_ {
+     height: 0rem;
+     transition: 0.16s ease-out;
 }

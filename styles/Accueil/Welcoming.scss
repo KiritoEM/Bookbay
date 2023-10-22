@@ -13,12 +13,19 @@
 
    &_container {
       overflow: hidden;
-      height: 77.7vh;
+      min-height: 77vh;
 
-
+      @include screen(small) {
+         min-height: 72vh;
+      }
+      
       .welcom_desc {
          padding: 15px;
          margin-top: 34vh;
+
+         @include screen(small) {
+            margin-top: 27vh;
+         }
 
          .main-title {
 
@@ -29,47 +36,68 @@
                text-shadow: 0 2px 22px rgb(44, 43, 43);
                font-weight: bold;
 
-               @include screen (medium){
-                  font-size:3.45em;
-               }
-
                span {
                   color: $secondary;
                }
+
+               @include screen (medium) {
+                  font-size: 3.45em;
+               }
+
+               @include screen(small) {
+                  font-size: 2.69em;
+               }
+
+               @media screen and (max-width:1156px) and (min-width:1024px) {
+                  font-size: 3.4em;
+               }
             }
+
+
          }
 
-         .boutons_list{ 
+         .boutons_list {
             margin-top: 3rem;
-              
-             .list_button{
-                
-                button{
-                  padding: 0.65rem 3.5rem 0px 3.5rem;
-                   text-transform: uppercase;
-                   border: 6px solid $secondary;
-                   background-color: rgba(26, 25, 24, 0.397);
-                   color: #fff;
-                   border-radius: 15px;
-                   font-weight: bold;
-                   font-size: 21.5px;
-                   text-shadow: 0 2px 10px rgba(46, 45, 45, 0.63);
-                   font-family: $font1;
-                   box-shadow: 0 1px 20px rgb(44, 44, 43);
 
-                   @include screen (medium){
+             @include screen(small){
+               margin-top: 1.8rem;
+             }
+
+            .list_button {
+
+               button {
+                  padding: 0.72rem 3.5rem 0px 3.5rem;
+                  text-transform: uppercase;
+                  border: 4.7px solid $secondary;
+                  background-color: rgba(26, 25, 24, 0.397);
+                  color: #fff;
+                  border-radius: 15px;
+                  font-weight: bold;
+                  font-size: 21.5px;
+                  text-shadow: 0 2px 10px rgba(46, 45, 45, 0.63);
+                  font-family: $font1;
+                  box-shadow: 0 1px 20px rgb(44, 44, 43);
+
+                  @include screen (medium) {
                      font-size: 22px;
                      padding: 0.6rem 4rem 0px 4rem;
                   }
 
-                     i{
-                         font-size: 35px
-                     }
-                     p{
-                        margin-left: 1rem;
-                     }
-                }
-             }
+
+                  @include screen(small) {
+                     font-size: 21px;
+                     padding: 0.5rem 4.5rem 0px 4.5rem;
+                  }
+
+                  i {
+                     font-size: 35px
+                  }
+
+                  p {
+                     margin-left: 1rem;
+                  }
+               }
+            }
          }
       }
    }
@@ -78,20 +106,28 @@
       overflow: hidden;
       filter: brightness(110%);
       height: 23vh;
+      margin-top: 2rem;
+
+      @include screen(small) {
+         height: 30vh;
+      }
 
       .waves_container {
          .waves {
-            height: 40vh;
+            height: 23vh;
             width: 114%;
             object-fit: cover;
 
-            @include screen (medium){
+            @include screen (medium) {
                width: 140%;
+            }
+
+            @include screen (small) {
+               width: 170%;
+               height: 30vh;
             }
          }
 
       }
    }
 }
-
-
