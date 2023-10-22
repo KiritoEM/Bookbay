@@ -2,9 +2,13 @@ import React from "react";
 import Logo from "./../../public/Store.png";
 import 'font-awesome/css/font-awesome.min.css';
 import Link from "next/link";
+import { scrollToList } from "../routes/scrollToList";
 
 
-const Nav = () => {
+const Nav : React.FC = () => {
+
+ const {scroll} = scrollToList();
+
     return (
         <div className="nav w-100">
           <div className="nav_primary w-100">
@@ -53,7 +57,7 @@ const Nav = () => {
                        <div className="toggle">
                              <ul className="d-flex text-center">
                                  <Link href="#"className="active"><li>Accueil</li></Link>
-                                 <Link href="/listes"><li>Listes des livres</li></Link>
+                                 <a onClick={scroll}><li>Listes des livres</li></a>
                                  <Link href=""><li>Contact</li></Link>
                              </ul>
                        </div>

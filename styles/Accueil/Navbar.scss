@@ -90,7 +90,6 @@
                     left: -2%;
                     top: 1.2rem;
 
-
                     &_container {
                          justify-content: center;
                          gap: 18px;
@@ -136,7 +135,6 @@
      }
 
      &_secondary{
-          
            background-color: $primary;
            height: 3.23rem;
 
@@ -151,6 +149,7 @@
                               text-decoration: none;
                               padding: 11px;
                               color: #fff;
+                              cursor: pointer;
 
                               &:hover{
                                    background-color: $secondary;
@@ -162,8 +161,7 @@
                                     font-size: 20px;
                                     font-weight: 600;
                               }
-
-                              
+ 
                            }
 
                            .active{

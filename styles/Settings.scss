@@ -2,9 +2,17 @@ $primary:rgb(21, 124, 207);
 $primary1:rgba(228, 231, 37, 0.7);
 $secondary: rgb(228, 231, 37);
 $font1:   'Gabarito', sans-serif;
+$font2: 'Tilt Neon', sans-serif;
 
+*{
+  padding: 0;
+  list-style: none;
+  text-decoration: none;
+  margin: 0;
+  box-sizing: content-box;
+}
 
-
+@mixin flip_animation{
 @keyframes flip {
     0% {
       transform: perspective(800px) rotateY(0);
@@ -13,4 +21,11 @@ $font1:   'Gabarito', sans-serif;
       transform: perspective(800px) rotateY(180deg);
     }
   }
+
+  .flip {
+    animation: flip 1s linear infinite;
+}
+
+
+}
 

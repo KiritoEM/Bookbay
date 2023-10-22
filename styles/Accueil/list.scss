@@ -1,0 +1,165 @@
+.list {
+      padding-top: 3.5rem;
+      padding-bottom: 3.5rem;
+      background-color: rgb(236, 234, 234);
+
+      &_container {
+            max-width: 90%;
+            margin-left: 4.8%;
+
+            #title {
+
+                  .titre_list {
+
+                        .subtitle h2 {
+                              font-size: 30.7px;
+                              font-family: $font1;
+                              color: $primary;
+                        }
+
+                       @include flip_animation;
+
+
+                        .maintitle h1 {
+                              font-size: 48px;
+                              font-family: $font1;
+                              font-weight: bold;
+                        }
+                  }
+            }
+
+            #content {
+                  margin-top: 2rem;
+
+
+                  .box {
+                        width: 102%;
+                        padding-bottom: 1rem;
+                        overflow: hidden;
+                        border: 1px solid rgba(109, 105, 105, 0.76);
+                        border-radius: 8px;
+
+                        &_image {
+                              height: 21rem;
+                              overflow: hidden;
+
+                              .image img {
+                                          width: 100%;
+                                          height: 21rem;
+                                          object-fit: cover;
+                                    }
+
+                              .prix {
+                                    position: relative;
+                                    top: -4rem;
+                                    right: 1rem;
+
+                                    h2 {
+                                          padding: 8px 25px 8px 25px;
+                                          border: 4px solid $secondary;
+                                          background-color: rgba(0, 0, 0, 0.767);
+                                          border-radius: 8px;
+                                          box-shadow: 0 0 15px rgb(56, 55, 55);
+                                          font-size: 22px;
+                                          font-weight: bold;
+                                          font-family: $font1;
+                                          color: $secondary;
+                                    }
+                              }
+                        }
+
+                        &_content {
+                              margin-top: 1.3rem;
+                              padding-left: 27px;
+                              padding-right: 20px;
+
+                              .titre_auth {
+
+                                    .titre {
+
+
+                                          h1 {
+                                                font-family: $font2;
+                                                font-size: 23.5px;
+                                                color: rgb(58, 56, 56);
+                                                line-height: 1.5;
+                                                display: -webkit-box;
+                                                -webkit-line-clamp: 2;
+                                                -webkit-box-orient: vertical;
+                                                overflow: hidden;
+
+                                                span {
+                                                      padding: 5px;
+                                                      background-color: $primary;
+                                                      box-shadow: 0 0 2.5px rgb(56, 55, 55);
+                                                      border-radius: 8px;
+                                                      font-size: 22px;
+                                                      color: #fff;
+                                                }
+                                          }
+                                    }
+
+                                    .auth {
+                                          margin-top: 1.5rem;
+
+                                          h1 {
+                                                font-family: $font2;
+                                                font-size: 24.4px;
+                                                color: rgb(58, 56, 56);
+
+                                                span {
+                                                      padding: 4px 5px 4px 5px;
+                                                      background-color: $secondary;
+                                                      box-shadow: 0 0 2.5px rgb(56, 55, 55);
+                                                      text-shadow: 0 1px 3px rgba(66, 63, 63, 0.664);
+                                                      border-radius: 8px;
+                                                      font-size: 22px;
+                                                      color: #fff;
+                                                }
+                                          }
+
+                                    }
+
+                              }
+
+                              .lign {
+                                    width: 50%;
+                                    margin-top: 1.2rem;
+                                    margin-left: 25.7%;
+                                    height: 2px;
+                                    background-color: rgb(148, 145, 142);
+                              }
+
+                              .synopsis {
+                                    margin-top: 0.7rem;
+
+                                    p {
+                                          font-size: 18.7px;
+                                          display: -webkit-box;
+                                          -webkit-box-orient: vertical;
+                                          -webkit-line-clamp: 4;
+                                          overflow: hidden;
+
+                                    }
+                              }
+
+                              .cart {
+
+                                    button {
+                                          padding: 6px 1.5rem 6px 1.5rem;
+                                          background-color: $secondary;
+                                          font-size: 21px;
+                                          color: #fff;
+                                          font-family: $font1;
+                                          font-weight: bold;
+                                          text-shadow: 0 0 3px rgba(56, 54, 54, 0.911);
+                                    }
+                              }
+                        }
+
+                  }
+            }
+      }
+
+
+}

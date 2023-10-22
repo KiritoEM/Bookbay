@@ -1,6 +1,10 @@
 import React from 'react';
+import {scrollToList} from '../routes/scrollToList';
 
-const Welcoming_page = () => {
+const Welcoming_page: React.FC = () => {
+
+  const {scroll} =scrollToList();
+
     return (
       <div className="welcoming">
         <div className="welcoming_container">
@@ -12,7 +16,7 @@ const Welcoming_page = () => {
 
               <div className="boutons_list d-flex justify-content-center">
                 <div className="list_button d-flex">
-                  <button className="btn d-flex">
+                  <button className="btn d-flex" onClick={scroll}>
                     <div className="book_icon">
                        <i className="fa fa-book"></i>
                     </div>
