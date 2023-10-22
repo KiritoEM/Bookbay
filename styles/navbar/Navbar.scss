@@ -239,10 +239,17 @@
                                    width: 100%;
 
 
-                                   @media screen and (max-width: 356px) {
+                                   @media screen and (max-width: 356px) and (min-width: 340px) {
                                         min-width: calc(105%);
                                         position: relative;
                                         right: 5%;
+                                   }
+
+
+                                   @media screen and (max-width: 339px){
+                                        min-width: calc(114%);
+                                        position: relative;
+                                        right: 10%;
                                    }
 
                                    @include screen(small){
