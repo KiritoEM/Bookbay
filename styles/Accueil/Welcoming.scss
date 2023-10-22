@@ -29,10 +29,6 @@
                text-shadow: 0 2px 22px rgb(44, 43, 43);
                font-weight: bold;
 
-               @include screen (medium){
-                  font-size:3.45em;
-               }
-
                span {
                   color: $secondary;
                }
