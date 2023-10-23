@@ -1,0 +1,27 @@
+.footer{
+    margin-top: 0rem;
+    width: 100%;
+
+     &_contain{
+         width: 100%;
+         padding-bottom: 0.5rem;
+         padding-top: 0.5rem;
+         background-color: rgb(39, 37, 37);
+         box-shadow: 0 -3px 5.4px rgba(102, 101, 101, 0.726);
+
+          h1{
+             font-size: 28px;
+             font-family: $font1;
+             color: #fff;
+             text-shadow: 0 2px 5px rgba(51, 50, 50, 0.76);
+
+              span{
+                 color: $secondary;
+              }
+
+              @include screen(small){
+                 font-size: 24.4px;
+              }
+          }
+     }
+}

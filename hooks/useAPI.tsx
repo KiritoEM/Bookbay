@@ -9,8 +9,9 @@ export function useAPI() {
   const searchQuery = "harry potter";
 
   const cachedData = useMemo(() => {
+
+  //si le tableau venant de AppContext bookData[] est vide
     if (bookData.length === 0) {
-    
       axios
         .get(
           `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=${apiKey}`
@@ -53,5 +54,4 @@ export function useAPI() {
 
   return cachedData;
 }
-
 //AIzaSyBOdoExLNhZIUinkDT_9k26ef8Yo70lxbE

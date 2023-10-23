@@ -4,6 +4,7 @@ import Welcoming_page from '../components/Accueil/Welcoming_page';
 import Suggestion_livres from '../components/Accueil/List_livres';
 import Head from 'next/head';
 import { AppProvider } from '../hooks/Context/AppContext';
+import Footer from '../components/footer/Footer';
 
 export default function page() {
   return (
@@ -24,6 +25,9 @@ export default function page() {
           <Suggestion_livres />
         </div>
       </main>
+      <footer>
+        <Footer />
+      </footer>
     </AppProvider>
   );
 }
