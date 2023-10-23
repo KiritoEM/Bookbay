@@ -3,10 +3,11 @@ import Nav from '../components/Navbar/Nav';
 import Welcoming_page from '../components/Accueil/Welcoming_page';
 import Suggestion_livres from '../components/Accueil/List_livres';
 import Head from 'next/head';
+import { AppProvider } from '../hooks/Context/AppContext';
 
 export default function page() {
   return (
-    <>
+    <AppProvider>
       <Head>
         <title>Accueil</title>
       </Head>
@@ -23,6 +24,6 @@ export default function page() {
           <Suggestion_livres />
         </div>
       </main>
-    </>
+    </AppProvider>
   );
 }

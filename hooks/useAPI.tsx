@@ -1,58 +1,57 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 import { Book } from "../typescript/Types";
+import { useApp } from "./Context/AppContext";
 
 export function useAPI() {
-  const [data, setData] = useState<Book[]>([]);
-
-  const apiKey = "AIzaSyDd7dkpqLUmH1HthzcHgohobNtKNS5UrRk";
+  const { setDataList, bookData } = useApp();
+  const apiKey = "AIzaSyBOdoExLNhZIUinkDT_9k26ef8Yo70lxbE";
   const searchQuery = "harry potter";
 
+  const cachedData = useMemo(() => {
+    if (bookData.length === 0) {
+    
+      axios
+        .get(
+          `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=${apiKey}`
+        )
+        .then((response) => {
+          const books = response.data.items;
+          const extractedData = books
+            .map(
+              (book: {
+                id: any;
+                volumeInfo: {
+                  imageLinks: any;
+                  title: any;
+                  authors: any;
+                  description: any;
+                  image: any;
+                };
+              }
+              ) => {
+                const id = book.id;
+                const title = book.volumeInfo.title;
+                const authors = book.volumeInfo.authors;
+                const image = book.volumeInfo.imageLinks?.thumbnail || "image non dispo";
+                const description =
+                  book.volumeInfo.description || "Description non disponible";
 
-  useEffect(() => {
-    axios
-      .get(
-        `https://www.googleapis.com/books/v1/volumes?q=${searchQuery}&key=${apiKey}`
-      )
-      .then((response) => {
-        const books = response.data.items;
-        const extractedData = books
-          .map(
-            (book: {
-              id: any;
-              volumeInfo: {
-                imageLinks: any; title: any; authors: any; description: any ,image: any
-};
-            }) => {
-              const id = book.id;
-              const title = book.volumeInfo.title;
-              const authors = book.volumeInfo.authors;
-              const image = book.volumeInfo.imageLinks?.thumbnail || "image non dispo";
-              const description =
-                book.volumeInfo.description || "Description non disponible";
+                return { id, title, authors, image, description };
+              }
+            )
+            .filter((book: any) => (book.description !== "Description non disponible"));
+          setDataList(extractedData);
+        })
+        .catch((error) => {
+          console.error("Erreur lors de la récupération des données :", error);
+          console.log("Détails de l'erreur :", error);
+        });
+    }
+    return bookData;
+  }, [setDataList, bookData, apiKey, searchQuery]);
 
-
-          return {id,title,authors,image,description};
-            }
-          )
-           .filter((book:any) => (book.description !== "Description non disponible")); 
-
-           
-           console.log("données depuis l ' API Google Books: ",extractedData);
-
-        setData(extractedData);
-      })
-      .catch((error) => {
-        console.error("Erreur lors de la récupération des données :", error);
-        console.log("Détails de l'erreur :", error);
-      });
-  }, []);
-
-  return {data}
+  return cachedData;
 }
 
-
-
-// AIzaSyD_q2zpAdbO5nz89q1RVmPefYwIpAMVEVw
-
-//AIzaSyDd7dkpqLUmH1HthzcHgohobNtKNS5UrRk
+//AIzaSyBOdoExLNhZIUinkDT_9k26ef8Yo70lxbE
