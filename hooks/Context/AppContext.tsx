@@ -43,12 +43,16 @@ export const AppProvider = ({ children }: Props) => {
     console.log(clickedSearch);
   };
 
+  const scrollTop = () => {
+      window.scrollTo(0,0);
+  };
+
   useEffect(() => {
     
   }, []);
 
   return (
-    <AppContext.Provider value={{ setDataList, bookData ,searchValue,setSearch, bookDataAffichage,clickedSearch,setSearchtoogle}}>
+    <AppContext.Provider value={{ setDataList, bookData ,searchValue,setSearch, bookDataAffichage,clickedSearch,setSearchtoogle, scrollTop}}>
       {children}
       <BooksProvider /> 
     </AppContext.Provider>

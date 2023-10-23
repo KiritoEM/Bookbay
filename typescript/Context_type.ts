@@ -7,6 +7,7 @@ import { Book } from "./Types"
      searchValue:string,
      setSearch : (item: string)=> void,
      setSearchtoogle : ()=> void,
+     scrollTop : ()=> void,
      clickedSearch:boolean,
   }
 export default Type_context;

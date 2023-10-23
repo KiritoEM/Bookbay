@@ -1,12 +1,14 @@
 import React from 'react';
 import {scrollToList} from '../routes/scrollToList';
+import { useApp } from '../../hooks/Context/AppContext';
 
 const Welcoming_page: React.FC = () => {
+  const {clickedSearch} = useApp();
 
   const {scroll} =scrollToList();
 
     return (
-      <div className="welcoming">
+      <div className={`welcoming ${clickedSearch ? "hide" : "show"}`}>
         <div className="welcoming_container">
           <div className="welcom_desc">
             <div className="main-title text-center">

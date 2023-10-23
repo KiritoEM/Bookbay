@@ -9,7 +9,7 @@ import { useApp } from "../../hooks/Context/AppContext";
 
 const Nav : React.FC = () => {
   const { scroll } = scrollToList();
-  const {setSearch,setSearchtoogle} = useApp();
+  const {setSearch,setSearchtoogle, scrollTop} = useApp();
 
   const [element,setElement]= useState("");
 
@@ -61,7 +61,7 @@ const Nav : React.FC = () => {
                 />
               </div>
               <div className="input-group-append h-100" id="search">
-                <button className="btn" onClick={()=>{setSearchtoogle();scroll()}}>
+                <button className="btn" onClick={()=>{setSearchtoogle(); scrollTop()}}>
                   <i className="fa fa-search"></i>
                 </button>
               </div>

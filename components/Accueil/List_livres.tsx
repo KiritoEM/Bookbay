@@ -13,13 +13,10 @@ const List_livres: React.FC = () => {
 
    const filteredBooks = bookData.filter((book) =>
       book.title.toLowerCase().includes(searchValue.toLowerCase())
-      
  );
 
-  
-
   return (
-    <div className="list w-100">
+    <div className={`w-100 list ${clickedSearch ? "down" : "up"}`}>
       <div className="list_container">
         <div className="row" id="title">
           <div className="col-12  d-flex justify-content-center" id='List'>
