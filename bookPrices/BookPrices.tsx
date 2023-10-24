@@ -12,6 +12,7 @@ export function BookPrices() {
         { title: "Harry Potter et l'Ordre du Phénix", price: 12.49 },
         { title: " Harry Potter et le prisonnier d'Azkaban", price: 12.49 },
         { title: "De La guerre des boutons à Harry Potter", price: 13.49 },
+        { title: "De La guerre des boutons à Harry Potter", price: 13.49 },
 
       ];
 
