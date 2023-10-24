@@ -166,3 +166,24 @@
 
 
 }
+
+.vide{
+    font-size: 30px;
+    color: rgba(36, 34, 34, 0.918);
+    font-family: $font1;
+
+     @include screen(small){
+       font-size: 27px;
+     }
+
+     span{
+      font-size: 25px;
+      text-decoration: underline;
+      color: rgba(78, 78, 78, 0.918);
+      font-family: $font2;
+
+      @include screen(small){
+            font-size: 23px;
+          }
+     }
+}

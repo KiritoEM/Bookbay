@@ -7,19 +7,32 @@ import { Book } from '../../typescript/Types';
 import image from "./../../public/Babar, Harry Potter & Cie.jpg"
 import axios from 'axios';
 import { SearchInteraction } from '../../intercations_searchBar/SearchInteraction';
+import { BookPrices } from '../../bookPrices/BookPrices';
 
 const List_livres: React.FC = () => {
    const {bookData,searchValue,clickedSearch}= useApp();
+   const {bookPrices} = BookPrices();
 
-   const filteredBooks = bookData.filter((book) =>
+   const booksWithPrices = bookData.map((book) => {
+    const priceInfo = bookPrices.find((item) => item.title === book.title);
+    const price = priceInfo ? priceInfo.price : 'Prix non disponible';
+  
+    return {
+      ...book,
+      price,
+    };
+  });
+
+   const filteredBooks = booksWithPrices.filter((book) =>
       book.title.toLowerCase().includes(searchValue.toLowerCase())
  );
+
 
   return (
     <div className={`w-100 list ${clickedSearch ? "down" : "up"}`}>
       <div className="list_container">
         <div className="row" id="title">
-          <div className="col-12  d-flex justify-content-center" id='List'>
+          <div className="col-12  d-flex justify-content-center" id="List">
             <div className="titre_list text-center">
               <div className="subtitle">
                 <h2>
@@ -28,7 +41,6 @@ const List_livres: React.FC = () => {
               </div>
 
               <div className="maintitle">
-
                 <h1>Liste de livres disponibles</h1>
               </div>
             </div>
@@ -36,58 +48,63 @@ const List_livres: React.FC = () => {
         </div>
 
         <div className="row gx-4 gy-4" id="content">
-        {clickedSearch ? (
-          filteredBooks.map((book) => (
-            <div className="col-md-6 col-lg-4" key={book.id}>
-              <article className="box bg-light">
-                <div className="box_image">
-                  <span className='image'>
-                       <img src={`/${book.title}.jpg`} alt="" />
-                  </span>
-                  <span className="prix d-flex justify-content-end">
-                    <h2>Prix: 350$</h2>
-                  </span>
-                </div>
-
-                <div className="box_content">
-                  <div className="titre_auth">
-                    <div className="titre">
-                      <h1>
-                        <span>Titre</span> : {book.title}
-                      </h1>
+          {clickedSearch ? (
+            filteredBooks.length === 0 ? (
+              <div className="col-12 text-center">
+                <h1 className='vide'>Aucun livre correspondant à: <span>"{searchValue}"</span></h1>
+              </div>
+            ) : (
+              filteredBooks.map((book) => (
+                <div className="col-md-6 col-lg-4" key={book.id}>
+                  <article className="box bg-light">
+                    <div className="box_image">
+                      <span className="image">
+                        <img src={`/${book.title}.jpg`} alt="" />
+                      </span>
+                      <span className="prix d-flex justify-content-end">
+                        <h2>Prix: {book.price} $</h2>
+                      </span>
                     </div>
-                  </div>
 
-                  <div className="lign"></div>
+                    <div className="box_content">
+                      <div className="titre_auth">
+                        <div className="titre">
+                          <h1>
+                            <span>Titre</span> : {book.title}
+                          </h1>
+                        </div>
+                      </div>
 
-                  <div className="synopsis">
-                    <p>{book.description}</p>
-                  </div>
+                      <div className="lign"></div>
 
-                  <div className="cart d-flex justify-content-center">
-                    <button className="btn">
-                      Ajouter au panier <i className="fa fa-shopping-cart"></i>
-                    </button>
-                  </div>
+                      <div className="synopsis">
+                        <p>{book.description}</p>
+                      </div>
+
+                      <div className="cart d-flex justify-content-center">
+                        <button className="btn">
+                          Ajouter au panier{" "}
+                          <i className="fa fa-shopping-cart"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </article>
                 </div>
-              </article>
-            </div>
-          )))
-
-          :
-          (
-            bookData.map((book) => (
+              ))
+            )
+          ) : (
+            booksWithPrices.map((book) => (
               <div className="col-md-6 col-lg-4" key={book.id}>
                 <article className="box bg-light">
                   <div className="box_image">
-                    <span className='image'>
-                         <img src={`/${book.title}.jpg`} alt="" />
+                    <span className="image">
+                      <img src={`/${book.title}.jpg`} alt="" />
                     </span>
                     <span className="prix d-flex justify-content-end">
-                      <h2>Prix: 350$</h2>
+                      <h2>Prix: {book.price} $</h2>
                     </span>
                   </div>
-  
+
                   <div className="box_content">
                     <div className="titre_auth">
                       <div className="titre">
@@ -96,25 +113,24 @@ const List_livres: React.FC = () => {
                         </h1>
                       </div>
                     </div>
-  
+
                     <div className="lign"></div>
-  
+
                     <div className="synopsis">
                       <p>{book.description}</p>
                     </div>
-  
+
                     <div className="cart d-flex justify-content-center">
                       <button className="btn">
-                        Ajouter au panier <i className="fa fa-shopping-cart"></i>
+                        Ajouter au panier{" "}
+                        <i className="fa fa-shopping-cart"></i>
                       </button>
                     </div>
                   </div>
                 </article>
               </div>
             ))
-          )
-        
-        }
+          )}
         </div>
       </div>
     </div>

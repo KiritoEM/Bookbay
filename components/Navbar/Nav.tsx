@@ -51,21 +51,36 @@ const Nav : React.FC = () => {
           </div>
 
           <div className="search_bar">
-            <div className="input-group d-flex">
-              <div className="input1">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Recherchez un livre..."
-                  onChange={change}
-                />
+            <form
+              action=""
+              onSubmit={(e: any) => {
+                e.preventDefault();
+                setSearchtoogle();
+                scrollTop();
+              }}
+            >
+              <div className="input-group d-flex">
+                <div className="input1">
+                  <input
+                    type="text"
+                    className="form-control"
+                    placeholder="Recherchez un livre..."
+                    onChange={change}
+                  />
+                </div>
+                <div className="input-group-append h-100" id="search">
+                  <button
+                    className="btn"
+                    onClick={() => {
+                      setSearchtoogle();
+                      scrollTop();
+                    }}
+                  >
+                    <i className="fa fa-search"></i>
+                  </button>
+                </div>
               </div>
-              <div className="input-group-append h-100" id="search">
-                <button className="btn" onClick={()=>{setSearchtoogle(); scrollTop()}}>
-                  <i className="fa fa-search"></i>
-                </button>
-              </div>
-            </div>
+            </form>
           </div>
 
           <div className="iconesHero">
@@ -109,21 +124,37 @@ const Nav : React.FC = () => {
 
               <a className="d-md-none">
                 <div className="search_bar d-flex justify-content-center">
-                  <div className="input-group d-flex justify-content-center">
-                    <div className="input1">
-                      <input
-                        type="text"
-                        className="form-control"
-                        placeholder="Recherchez un livre..."
-                        onChange={change}
-                      />
+                  <form
+                    action=""
+                    onSubmit={(e: any) => {
+                      e.preventDefault();
+                      setSearchtoogle();
+                      scrollTop();
+                    }}
+                  >
+                    <div className="input-group d-flex justify-content-center">
+                      <div className="input1">
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Recherchez un livre..."
+                          onChange={change}
+                        />
+                      </div>
+                      <div className="input-group-append" id="search">
+                        <button
+                          className="btn"
+                          onClick={() => {
+                            setSearchtoogle();
+                            scroll();
+                            ClickItem();
+                          }}
+                        >
+                          <i className="fa fa-search"></i>
+                        </button>
+                      </div>
                     </div>
-                    <div className="input-group-append" id="search">
-                      <button className="btn"  onClick={()=>{setSearchtoogle();scroll(); ClickItem()}}>
-                        <i className="fa fa-search"></i>
-                      </button>
-                    </div>
-                  </div>
+                  </form>
                 </div>
               </a>
             </ul>
