@@ -6,7 +6,7 @@ import { Book_Cart } from '../../typescript/Types';
 
 const Panier: React.FC = () => {
 
-    const {bookCart, navpanier,clearCart,setBookUpdate,displayButtonAdd} = useApp();
+    const {bookCart, navpanier,clearCart,setBookUpdate,displayButtonAdd,deleteOne} = useApp();
 
      const [CartData, setCartData] = useState<Book_Cart[]>(bookCart);
 
@@ -41,7 +41,12 @@ const Panier: React.FC = () => {
                     </h1>
                   </div>
 
-                  <div className={`deleteAll ${bookCart.length==0 ? "d-none" : "d-flex"}`} onClick={clearCart}>
+                  <div
+                    className={`deleteAll ${
+                      bookCart.length == 0 ? "d-none" : "d-flex"
+                    }`}
+                    onClick={clearCart}
+                  >
                     <h1>
                       <i className="fa fa-trash" id="icon_delete"></i>
                       Vider
@@ -63,17 +68,25 @@ const Panier: React.FC = () => {
                           key={item.id}
                         >
                           <div className="image-titre d-flex">
-                          <div className="image" style={{ backgroundImage: `url("/${item.title}.jpg")` }}></div>
-
-
-
+                            <div
+                              className="image"
+                              style={{
+                                backgroundImage: `url("/${item.title}.jpg")`,
+                              }}
+                            ></div>
                             <div className="title">
                               <h3>{item.title}</h3>
                             </div>
                           </div>
 
                           <div className="delete-prix d-flex">
-                            <div className="delete_button  align-item-center d-none d-md-flex" onClick={()=>{ deletePanierItem(item.id)}}>
+                            <div
+                              className="delete_button  align-item-center d-none d-md-flex"
+                              onClick={() => {
+                                deletePanierItem(item.id);
+                                deleteOne()
+                              }}
+                            >
                               <div className="align-item-center d-flex">
                                 <i className="fa fa-trash" id="icon_delete"></i>
                               </div>{" "}
@@ -92,7 +105,11 @@ const Panier: React.FC = () => {
                   </div>
                 </div>
 
-                <div className={`justify-content-end totalPrix ${bookCart.length==0 ? "d-none" : "d-flex"}`}>
+                <div
+                  className={`justify-content-end totalPrix ${
+                    bookCart.length == 0 ? "d-none" : "d-flex"
+                  }`}
+                >
                   <div className="total_contain d-flex">
                     <div className="texte">
                       <h1>Total : </h1>

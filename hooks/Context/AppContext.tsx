@@ -96,6 +96,10 @@ export const AppProvider = ({ children }: Props) => {
   setAjout({[item]:false});
 }
 
+const deleteOne = ()=>{
+  setCount(count-1);
+}
+
   useEffect(() => {}, []);
 
   return (
@@ -112,10 +116,14 @@ export const AppProvider = ({ children }: Props) => {
         addCart,
         count,
         Cartcount,
+        deleteOne,
         Navtoogle,
         navpanier,
-        clearCart,setBookUpdate,
-        ajout,handleAdd,displayButtonAdd
+        clearCart,
+        setBookUpdate,
+        ajout,
+        handleAdd,
+        displayButtonAdd,
       }}
     >
       {children}
