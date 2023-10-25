@@ -85,7 +85,7 @@ const Panier: React.FC = () => {
                             </div>
 
                             <div className="prix">
-                              <h1>{item.Price}</h1>
+                              <h1>{item.Price} $</h1>
                             </div>
                           </div>
                         </article>
