@@ -45,7 +45,7 @@
                }
 
                @include screen(small) {
-                  font-size: 2.44em;
+                  font-size: 2.43em;
                }
 
                @media screen and (max-width:1156px) and (min-width:1024px) {
@@ -64,11 +64,15 @@
              }
 
             .list_button {
+               align-items: center;
+               display: flex;
 
                button {
-                  padding: 0.72rem 3.5rem 0px 3.5rem;
+                  padding: 0.3rem 3.5rem 0px 3.5rem;
                   text-transform: uppercase;
                   border: 5.4px solid $secondary;
+                  align-items: center;
+                  display: flex;
                   background-color: rgba(26, 25, 24, 0.397);
                   color: #fff;
                   border-radius: 15px;
@@ -85,8 +89,9 @@
 
 
                   @include screen(small) {
-                     font-size: 21px;
-                     padding: 0.7rem 3.3rem 0px 3.3rem;
+                     font-size: 20.5px;
+                     padding: 0.5rem 3rem 0px 3rem;
+                     height: 60px;
                   }
 
                   i {
@@ -95,6 +100,8 @@
 
                   p {
                      margin-left: 1rem;
+                     align-items: center;
+                     margin-top: 0.6rem;
                   }
                }
             }
