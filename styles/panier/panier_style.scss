@@ -149,8 +149,12 @@
                 padding: 0.4rem 1% 0.2rem 1%;
             }
 
+            @include screen (medium) {
+                padding: 0.4rem 1.5% 0.2rem 1.5%;
+            }
+
             #col-12 {
-                justify-content: space-between;
+                justify-content: space-around;
                 height: 6rem;
                 border-left: 0;
                 border-right: 0;
@@ -164,7 +168,11 @@
                     align-items: center;
 
                     @include screen (small) {
-                        width: 70%;
+                        width: 66%;
+                    }
+
+                    @include screen (medium) {
+                        width: 57%;
                     }
 
                     .image {
@@ -203,18 +211,21 @@
                 .delete-prix {
                     gap: 45px;
                     align-items: center;
+                    display: flex;
+                    justify-content: end;
                     margin-top: -0rem;
-                    width: 32%;
+                    width: 35%;
                     cursor: pointer;
 
                     @include screen (small) {
-                        width: 25%;
+                        width: 34%;
                     }
 
                     @include screen (medium) {
                         gap: 20px;
                         position: relative;
-                        left: 6%;
+                        left: 2%;
+                        width: 33%;
                     }
 
                     .delete_button {
