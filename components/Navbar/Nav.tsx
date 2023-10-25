@@ -83,7 +83,7 @@ const Nav : React.FC = () => {
                   <input
                     type="text"
                     className="form-control"
-                    placeholder="Recherchez un livre..."
+                    placeholder="Entrez le titre du livre..."
                     onChange={change}
                   />
                 </div>
@@ -156,7 +156,7 @@ const Nav : React.FC = () => {
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="Recherchez un livre..."
+                          placeholder="Entrez le titre du livre..."
                           onChange={change}
                         />
                       </div>
