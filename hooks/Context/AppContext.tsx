@@ -93,7 +93,7 @@ export const AppProvider = ({ children }: Props) => {
  }
 
  const displayButtonAdd = (item: string)=>{
-  setAjout({[item]:false});
+  setAjout({...ajout,[item]:false});
 }
 
 const deleteOne = ()=>{
