@@ -14,5 +14,7 @@ import { Book , Book_Cart} from "./Types"
      addCart: (bookdata:Book_Cart)=> void,
      Cartcount: ()=> void,
      Navtoogle: ()=> void,
+     clearCart: ()=> void,
+     setBookUpdate: (book: Book_Cart[])=> void,
   }
 export default Type_context;

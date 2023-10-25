@@ -74,12 +74,19 @@ export const AppProvider = ({ children }: Props) => {
 
   const Cartcount = () => {
     setCount(count + 1);
-    localStorage.setItem("bookCartcount", JSON.stringify(count));
   };
 
   const Navtoogle = () => {
     setNav(!navpanier);
   };
+
+  const clearCart = () => {
+    setBookCart([]);
+  };
+
+  const setBookUpdate = (book :Book_Cart[])=>{
+       setBookCart(book);
+  }
 
 
   useEffect(() => {}, []);
@@ -99,7 +106,8 @@ export const AppProvider = ({ children }: Props) => {
         count,
         Cartcount,
         Navtoogle,
-        navpanier
+        navpanier,
+        clearCart,setBookUpdate
       }}
     >
       {children}

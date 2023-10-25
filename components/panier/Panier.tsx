@@ -6,11 +6,13 @@ import { Book_Cart } from '../../typescript/Types';
 
 const Panier: React.FC = () => {
 
-    const {bookCart, navpanier} = useApp();
+    const {bookCart, navpanier,clearCart,setBookUpdate} = useApp();
 
-    // ---------------recuperation dee données du panier via localstorage----------------------
-    // const [parsedCartData, setParsedCartData] = useState<Book_Cart[]>([]);
+     const [CartData, setCartData] = useState<Book_Cart[]>(bookCart);
 
+     const totalPrice = bookCart.reduce((total, book) => total + book.Price, 0);
+
+     // ---------------recuperation dee données du panier via localstorage----------------------
     // useEffect(() => {
     //     const cartData = localStorage.getItem('bookCart');
     //     if (cartData !== null) {
@@ -19,23 +21,18 @@ const Panier: React.FC = () => {
     //     }
     // }, [parsedCartData]);
 
-    // const deletePanierItem = (item_ID: Book_Cart) => {
-    //   const updatedCart = parsedCartData.filter((cartItem: Book_Cart) => cartItem.id !== item_ID.id);
-    //   setParsedCartData(updatedCart);
-
-    //   localStorage.setItem('bookCart', JSON.stringify(updatedCart));
-    // }
-
-    // const clearPanier = () => {
-    //   setParsedCartData([]);
-    //   localStorage.removeItem('bookCart');
-    // };
+    const deletePanierItem = (item_ID: string) => {
+      const updatedCart = bookCart.filter((cartItem: Book_Cart) => cartItem.id !== item_ID);
+      setBookUpdate(updatedCart); 
+      console.log(updatedCart);
+    }
+    
     
 
     return (
       <div className={`panier ${navpanier ? "show_" : "hide_"}`}>
         <div className="panier_container d-flex justify-content-center align-item-center">
-          <div className="panier_content rounded">
+          <div className="panier_content scrollable-container rounded">
             <div className="row">
               <div className="col-12">
                 <div className="cart_couv">
@@ -46,7 +43,7 @@ const Panier: React.FC = () => {
                     </h1>
                   </div>
 
-                  <div className="deleteAll">
+                  <div className={`deleteAll ${bookCart.length==0 ? "d-none" : "d-flex"}`} onClick={clearCart}>
                     <h1>
                       <i className="fa fa-trash" id="icon_delete"></i>
                       Vider
@@ -68,7 +65,9 @@ const Panier: React.FC = () => {
                           key={item.id}
                         >
                           <div className="image-titre d-flex">
-                            <div className="image"></div>
+                          <div className="image" style={{ backgroundImage: `url("/${item.title}.jpg")` }}></div>
+
+
 
                             <div className="title">
                               <h3>{item.title}</h3>
@@ -76,7 +75,7 @@ const Panier: React.FC = () => {
                           </div>
 
                           <div className="delete-prix d-flex">
-                            <div className="delete_button  align-item-center d-none d-md-flex">
+                            <div className="delete_button  align-item-center d-none d-md-flex" onClick={()=>{ deletePanierItem(item.id)}}>
                               <div className="align-item-center d-flex">
                                 <i className="fa fa-trash" id="icon_delete"></i>
                               </div>{" "}
@@ -95,14 +94,14 @@ const Panier: React.FC = () => {
                   </div>
                 </div>
 
-                <div className={`totalPrix ${bookCart.length==0 ? "hide" : "show"}`}>
+                <div className={`justify-content-end totalPrix ${bookCart.length==0 ? "d-none" : "d-flex"}`}>
                   <div className="total_contain d-flex">
                     <div className="texte">
                       <h1>Total : </h1>
                     </div>
 
                     <div className="prix">
-                      <p>350$</p>
+                      <p>{totalPrice}$</p>
                     </div>
 
                     <div className="payement">
