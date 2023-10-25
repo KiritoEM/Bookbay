@@ -136,6 +136,7 @@
 
                          .cart {
                               margin-top: -0.5rem;
+                              cursor: pointer;
 
                               .icon {
                                    font-size: 29px;
@@ -249,7 +250,7 @@
 
                                    @include screen(small){
                                        margin-left: 0%;
-                                       width: calc(100% + 44px); 
+                                       width: calc(100% + 15px); 
                                    }
 
                                    @media screen and (max-width: 410px) {

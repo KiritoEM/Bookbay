@@ -3,19 +3,20 @@ import Image from 'next/image';
 import harry1 from "./../../public/harry1.jpg";
 import 'font-awesome/css/font-awesome.min.css';
 import { useApp } from '../../hooks/Context/AppContext';
-import { Book } from '../../typescript/Types';
+import { AjoutState} from '../../typescript/Types';
 import image from "./../../public/Babar, Harry Potter & Cie.jpg"
 import axios from 'axios';
 import { SearchInteraction } from '../../intercations_searchBar/SearchInteraction';
 import { BookPrices } from '../../bookPrices/BookPrices';
 
 const List_livres: React.FC = () => {
-   const {bookData,searchValue,clickedSearch}= useApp();
+   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount}= useApp();
    const {bookPrices} = BookPrices();
+   const [ajout, setAjout] = useState<AjoutState>({});
 
    const booksWithPrices = bookData.map((book) => {
     const priceInfo = bookPrices.find((item) => item.title === book.title);
-    const price = priceInfo ? priceInfo.price : 'Prix non disponible';
+    const price = priceInfo ? priceInfo.price : 0;
   
     return {
       ...book,
@@ -27,6 +28,9 @@ const List_livres: React.FC = () => {
       book.title.toLowerCase().includes(searchValue.toLowerCase())
  );
 
+   const handleAdd= (item: string)=>{
+      setAjout({ ...ajout, [item]: true });
+   }
 
   return (
     <div className={`w-100 list ${clickedSearch ? "down" : "up"}`}>
@@ -51,7 +55,9 @@ const List_livres: React.FC = () => {
           {clickedSearch ? (
             filteredBooks.length === 0 ? (
               <div className="col-12 text-center">
-                <h1 className='vide'>Aucun livre correspondant à: <span>"{searchValue}"</span></h1>
+                <h1 className="vide">
+                  Aucun livre correspondant à: <span>"{searchValue}"</span>
+                </h1>
               </div>
             ) : (
               filteredBooks.map((book) => (
@@ -82,10 +88,37 @@ const List_livres: React.FC = () => {
                       </div>
 
                       <div className="cart d-flex justify-content-center">
-                        <button className="btn">
-                          Ajouter au panier{" "}
-                          <i className="fa fa-shopping-cart"></i>
-                        </button>
+                        {ajout[book.id] ? (
+                          <div>
+                            <button className="btn success">
+                              Ajouté au panier
+                              <i className="fa fa-check"></i>
+                            </button>
+                          </div>
+                        ) : (
+                          <div
+                            onClick={() => {
+                              Cartcount();
+                              handleAdd(book.id);
+                            }}
+                            className=""
+                          >
+                            <button
+                              className="btn"
+                              onClick={() => {
+                                addCart({
+                                  id: book.id,
+                                  title: book.title,
+                                  Price: book.price,
+                                  image: book.image,
+                                });
+                              }}
+                            >
+                              Ajouter au panier{" "}
+                              <i className="fa fa-shopping-cart"></i>
+                            </button>
+                          </div>
+                        )}
                       </div>
                     </div>
                   </article>
@@ -121,10 +154,37 @@ const List_livres: React.FC = () => {
                     </div>
 
                     <div className="cart d-flex justify-content-center">
-                      <button className="btn">
-                        Ajouter au panier{" "}
-                        <i className="fa fa-shopping-cart"></i>
-                      </button>
+                      {ajout[book.id] ? (
+                        <div>
+                          <button className="btn success">
+                            Ajouté au panier
+                            <i className="fa fa-check"></i>
+                          </button>
+                        </div>
+                      ) : (
+                        <div
+                          onClick={() => {
+                            Cartcount();
+                            handleAdd(book.id);
+                          }}
+                          className=""
+                        >
+                          <button
+                            className="btn"
+                            onClick={() => {
+                              addCart({
+                                id: book.id,
+                                title: book.title,
+                                Price: book.price,
+                                image: book.image,
+                              });
+                            }}
+                          >
+                            Ajouter au panier{" "}
+                            <i className="fa fa-shopping-cart"></i>
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
                 </article>

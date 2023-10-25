@@ -1,0 +1,361 @@
+.panier_livres{
+    overflow: hidden;
+    box-sizing: content-box;
+    width: 100%;
+}
+
+.panier {
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    top: 6rem;
+    background-color: #eeeeee;
+    padding-bottom: 3rem;
+    overflow: hidden;
+
+    @include screen(small) {
+        top: 0rem;
+        padding-bottom: 0rem;
+    }
+
+    &::after {
+        content: "";
+        display: block;
+        height: 10vh;
+
+         
+    @include screen(small) {
+        height: 14vh;
+    }
+    }
+
+    &_container {
+        position: relative;
+        margin-top: calc(2rem + 11vh);
+        align-items: center;
+        justify-content: center;
+        display: flex;
+
+        @include screen(small) {
+            margin-top: calc(4rem + 19.5vh);
+        }
+
+        @include screen(medium) {
+            margin-top: calc(2rem + 6.1vh);
+        }
+    }
+
+    &_content {
+        position: relative;
+        height: 63vh;
+        overflow-y: auto;
+        overflow-x: hidden;
+        padding: 1.4rem 1.4rem 4rem 1.4rem;
+        width: 95%;
+        border: 1.2px solid rgba(114, 113, 113, 0.596);
+        background-color: #fff;
+        box-shadow: 0 1px 5px rgba(117, 114, 114, 0.637);
+
+        @include screen(medium) {
+            height: 75.5vh;
+        }
+
+        @include screen(small) {
+            padding: 1.4rem   2% 4rem 2%;
+        }
+
+        .cart_couv {
+            display: flex;
+            justify-content: space-between;
+
+            .maintitle {
+
+                h1 {
+                    font-family: $font1;
+                    font-size: 34px;
+
+                    @include screen (small) {
+                        font-size: 25.6px;
+                    }
+
+                    #icon_cart {
+                        font-size: 45px;
+                        color: $primary;
+
+                        @include screen (small) {
+                            font-size: 38px;
+                        }
+                    }
+                }
+            }
+
+            .deleteAll {
+                display: flex;
+                align-items: center;
+                margin-top: 0.4rem;
+                margin-right: 2%;
+                cursor: pointer;
+
+                @include screen(small) {
+                    margin-right: 0%;
+                }
+
+                h1 {
+                    padding: 9px 20px 9px 20px;
+                    background-color: red;
+                    font-family: $font1;
+                    border-radius: 6px;
+                    font-size: 20px;
+                    color: #fff;
+
+                    @include screen(small) {
+                        font-size: 17px;
+                    }
+                }
+
+                #icon_delete {
+                    position: relative;
+                    left: -5%;
+                }
+            }
+
+            &::after {
+                content: "";
+                position: absolute;
+                width: 26%;
+                margin-top: 4rem;
+                height: 3px;
+                border-radius: 20px;
+                background-color: $primary;
+
+                @include screen(small) {
+                    width: 50%;
+                    margin-top: 2.9rem;
+                }
+
+                @include screen(medium) {
+                    width: 36%;
+                }
+            }
+        }
+
+        .cart {
+            width: 100%;
+            padding: 0.4rem 3% 0.2rem 3%;
+            height: 90%;
+            overflow: hidden;
+
+            @include screen (small) {
+                padding: 0.4rem 1% 0.2rem 1%;
+            }
+
+            #col-12 {
+                justify-content: space-between;
+                height: 6rem;
+                border-left: 0;
+                border-right: 0;
+                border-top: 0;
+                border-bottom: 1.6px solid rgba(114, 113, 113, 0.596);
+
+
+
+                .image-titre {
+                    width: 68%;
+                    align-items: center;
+
+                    @include screen (small) {
+                        width: 70%;
+                    }
+
+                    .image {
+                        width: 4.5rem;
+                        height: 5rem;
+                        background-size: cover;
+                        border-radius: 2px;
+
+                        @include screen (small) {
+                            height: 4.8rem;
+                            width: 5.7rem;
+                        }
+                    }
+
+                    .title {
+                        margin-left: 3%;
+
+                        h3 {
+                            font-size: 26px;
+                            font-family: $font2;
+                            color: rgb(44, 43, 43);
+
+                            @include screen (medium) {
+                                font-size: 23.6px;
+                            }
+
+                            @include screen (small) {
+                                font-size: 19px;
+                            }
+
+
+                        }
+                    }
+                }
+
+                .delete-prix {
+                    gap: 45px;
+                    align-items: center;
+                    margin-top: -0rem;
+                    width: 32%;
+                    cursor: pointer;
+
+                    @include screen (small) {
+                        width: 25%;
+                    }
+
+                    @include screen (medium) {
+                        gap: 20px;
+                        position: relative;
+                        left: 6%;
+                    }
+
+                    .delete_button {
+                        padding: 5px 20px 0px 20px;
+                        background-color: red;
+                        border-radius: 6px;
+                        height: 3.2rem;
+
+                        #icon_delete {
+                            font-size: 24px;
+                            margin-top: 0.45rem;
+                            color: #fff;
+                        }
+
+                        p {
+                            font-size: 22px;
+                            margin-left: 9%;
+                            margin-top: 0.2rem;
+                            color: #fff;
+                            text-shadow: 0 1px 2px rgba(56, 54, 54, 0.699);
+                            font-family: $font1;
+                        }
+                    }
+
+                    .prix {
+                        margin-top: 0.45rem;
+                        align-items: center;
+
+                        h1 {
+                            font-size: 22px;
+                            padding: 7px 20px 7px 20px;
+                            border-radius: 12px;
+                            border: 3px solid $primary;
+                            background-color: rgba(245, 244, 244, 0.767);
+                            font-weight: bold;
+
+                            @include screen (small) {
+                                font-size: 17.5px;
+                                padding: 5px 12px 5px 12px;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        .totalPrix {
+            margin-top: 0rem;
+            width: 100%;
+            height: 5rem;
+            top: 0;
+            border-radius: 10px;
+            background-color: #eeeeee;
+            position: relative;
+            right: 0%;
+            padding-right: 8%;
+            align-items: center;
+            padding: 0.4rem 3% 0.2rem 3%;
+
+             @include screen(small){
+                padding: 0.4rem 5% 0.2rem 1%;
+             }
+
+            .total_contain {
+                align-items: center;
+                gap: 25px;
+
+                .texte {
+
+                    h1 {
+                        font-size: 25px;
+                        font-family: $font1;
+                        text-decoration: underline;
+
+                        @include screen(small) {
+                            font-size: 22.5px;
+                        }
+                    }
+                }
+
+                .prix {
+                    align-items: center;
+                    display: flex;
+                    margin-top: 0.6rem;
+
+                    p {
+                        font-size: 22px;
+                        padding: 5.5px 18px 5.5px 18px;
+                        border-radius: 12px;
+                        border: 4.5px solid green;
+                        font-family: $font1;
+
+                        @include screen(small) {
+                            font-size: 20px;
+                            padding: 4.5px 15px 4.5px 15px;
+                        }
+                    }
+                }
+
+                .payement {
+
+                    .btn {
+                        background-color: $secondary;
+                        padding: 6px;
+                        font-size: 21px;
+                        padding-left: 20px;
+                        font-family: $font1;
+                        font-weight: bold;
+                        color: #fff;
+                        text-shadow: 0 1.5px 5px rgba(83, 79, 79, 0.692);
+                        padding-right: 20px;
+
+                        @include screen(small) {
+                            padding: 4px;
+                            font-size: 20.7px;
+                            padding-left: 10px;
+                            padding-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.hide_price{
+    display: none;
+    position: relative;
+}
+
+.show_price{
+    display: flex;
+    position: relative;
+}
+
+.hide_{
+  height:0;
+  transition: 0.25s ease-in;
+}
+
+.show_{
+  height: 100vh;
+  transition: 0.25s ease-out;
+}

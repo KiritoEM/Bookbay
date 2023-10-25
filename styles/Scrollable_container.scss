@@ -1,0 +1,45 @@
+.scrollable-container {
+    @include screen(small) {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    @include screen(medium) {
+        overflow-y: scroll;
+        -webkit-overflow-scrolling: touch;
+    }
+
+
+    &::-webkit-scrollbar {
+        @include screen(small) {
+            width: 8px;
+        }
+
+        @include screen(medium) {
+            width: 9px;
+        }
+    }
+
+    &::-webkit-scrollbar-thumb {
+
+        @include screen(small) {
+            background-color: #888;
+            border-radius: 4px;
+        }
+
+        @include screen(medium) {
+            background-color: #888;
+            border-radius: 4px;
+        }
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+        @include screen(small) {
+            background-color: #555;
+        }
+
+        @include screen(medium) {
+            background-color: #555;
+        }
+    }
+}

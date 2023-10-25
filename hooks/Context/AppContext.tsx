@@ -1,5 +1,11 @@
-import React, { createContext, useContext, useState, ReactNode, useEffect } from "react";
-import { Book } from "../../typescript/Types";
+import React, {
+  createContext,
+  useContext,
+  useState,
+  ReactNode,
+  useEffect,
+} from "react";
+import { Book, Book_Cart } from "../../typescript/Types";
 import Type_context from "../../typescript/Context_type";
 import { useAPI } from "../useAPI";
 import { SearchInteraction } from "../../intercations_searchBar/SearchInteraction";
@@ -20,41 +26,92 @@ export const useApp = () => {
 };
 
 export const AppProvider = ({ children }: Props) => {
-  const {Search_interaction} = SearchInteraction();
+  // -----------données via API---------------
   const [bookData, setBookData] = useState<Book[]>([]);
+
+  // -----------activation de la recherchr---------------
   const [clickedSearch, setClicked] = useState(false);
-  const [ bookDataAffichage, setBookDataAff] = useState<Book[]>(bookData);
-  const [ searchValue, setSearchValue] = useState<string>("Aucun livre correspondant");
+
+  // --------------------------valeur entrée dans la barre de recherche----------------------
+  const [searchValue, setSearchValue] = useState<string>(
+    "Aucun livre correspondant"
+  );
+
+  // -----------activation de la recherchr---------------
+  const [bookCart, setBookCart] = useState<Book_Cart[]>([]);
+
+  const [count, setCount] = useState<number>(0);
+
+  const [navpanier, setNav] = useState<boolean>(false);
 
   const setDataList = (bookdata: Book[]) => {
     setBookData(bookdata);
-    console.log('donnés recu depuis useAPI: ',bookData)
+    console.log("donnés recu depuis useAPI: ", bookData);
   };
 
-  let booklist: Book[]=[];
-
- 
-  const setSearch = (item:string) => {
+  const setSearch = (item: string) => {
     setSearchValue(item);
   };
 
-  const setSearchtoogle  = () => {
-     setClicked(true);
+  const setSearchtoogle = () => {
+    setClicked(true);
     console.log(clickedSearch);
   };
 
   const scrollTop = () => {
-      window.scrollTo(0,0);
+    window.scrollTo(0, 0);
   };
 
-  useEffect(() => {
-    
-  }, []);
+  const addCart = (bookdata: Book_Cart) => {
+    const updatedCart = [...bookCart, bookdata];
+    setBookCart(updatedCart);
+    // ---------------envoie dee données du panier vers localstorage en le transformant en code json----------------------
+    localStorage.setItem("bookCart", JSON.stringify(updatedCart));
+
+    console.log("Livre ajouté", bookdata);
+    console.log("Nouveau panier", updatedCart);
+  };
+
+  const Cartcount = () => {
+    setCount(count + 1);
+  };
+
+  const Navtoogle = () => {
+    setNav(!navpanier);
+  };
+
+  const clearCart = () => {
+    setBookCart([]);
+  };
+
+  const setBookUpdate = (book :Book_Cart[])=>{
+       setBookCart(book);
+  }
+
+
+  useEffect(() => {}, []);
 
   return (
-    <AppContext.Provider value={{ setDataList, bookData ,searchValue,setSearch, bookDataAffichage,clickedSearch,setSearchtoogle, scrollTop}}>
+    <AppContext.Provider
+      value={{
+        setDataList,
+        bookData,
+        searchValue,
+        setSearch,
+        clickedSearch,
+        setSearchtoogle,
+        scrollTop,
+        bookCart,
+        addCart,
+        count,
+        Cartcount,
+        Navtoogle,
+        navpanier,
+        clearCart,setBookUpdate
+      }}
+    >
       {children}
-      <BooksProvider /> 
+      <BooksProvider />
     </AppContext.Provider>
   );
 };
