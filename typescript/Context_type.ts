@@ -1,4 +1,4 @@
-import { Book , Book_Cart} from "./Types"
+import { Book , Book_Cart, AjoutState} from "./Types"
 
  interface Type_context {
      bookData: Book[],
@@ -7,6 +7,7 @@ import { Book , Book_Cart} from "./Types"
      bookCart: Book_Cart[],
      count: number,
      navpanier: boolean,
+     ajout: AjoutState,
      setDataList: (bookdata:Book[])=> void,
      setSearch : (item: string)=> void,
      setSearchtoogle : ()=> void,
@@ -16,5 +17,7 @@ import { Book , Book_Cart} from "./Types"
      Navtoogle: ()=> void,
      clearCart: ()=> void,
      setBookUpdate: (book: Book_Cart[])=> void,
+      handleAdd: (item_ID: string)=> void,
+      displayButtonAdd: (item_ID: string)=> void,
   }
 export default Type_context;

@@ -10,9 +10,8 @@ import { SearchInteraction } from '../../intercations_searchBar/SearchInteractio
 import { BookPrices } from '../../bookPrices/BookPrices';
 
 const List_livres: React.FC = () => {
-   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount}= useApp();
+   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount,handleAdd, ajout}= useApp();
    const {bookPrices} = BookPrices();
-   const [ajout, setAjout] = useState<AjoutState>({});
 
    const booksWithPrices = bookData.map((book) => {
     const priceInfo = bookPrices.find((item) => item.title === book.title);
@@ -28,9 +27,6 @@ const List_livres: React.FC = () => {
       book.title.toLowerCase().includes(searchValue.toLowerCase())
  );
 
-   const handleAdd= (item: string)=>{
-      setAjout({ ...ajout, [item]: true });
-   }
 
   return (
     <div className={`w-100 list ${clickedSearch ? "down" : "up"}`}>

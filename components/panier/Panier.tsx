@@ -6,7 +6,7 @@ import { Book_Cart } from '../../typescript/Types';
 
 const Panier: React.FC = () => {
 
-    const {bookCart, navpanier,clearCart,setBookUpdate} = useApp();
+    const {bookCart, navpanier,clearCart,setBookUpdate,displayButtonAdd} = useApp();
 
      const [CartData, setCartData] = useState<Book_Cart[]>(bookCart);
 
@@ -24,11 +24,9 @@ const Panier: React.FC = () => {
     const deletePanierItem = (item_ID: string) => {
       const updatedCart = bookCart.filter((cartItem: Book_Cart) => cartItem.id !== item_ID);
       setBookUpdate(updatedCart); 
-      console.log(updatedCart);
+      displayButtonAdd(item_ID)
     }
     
-    
-
     return (
       <div className={`panier ${navpanier ? "show_" : "hide_"}`}>
         <div className="panier_container d-flex justify-content-center align-item-center">

@@ -5,7 +5,7 @@ import React, {
   ReactNode,
   useEffect,
 } from "react";
-import { Book, Book_Cart } from "../../typescript/Types";
+import { Book, Book_Cart ,AjoutState } from "../../typescript/Types";
 import Type_context from "../../typescript/Context_type";
 import { useAPI } from "../useAPI";
 import { SearchInteraction } from "../../intercations_searchBar/SearchInteraction";
@@ -36,13 +36,11 @@ export const AppProvider = ({ children }: Props) => {
   const [searchValue, setSearchValue] = useState<string>(
     "Aucun livre correspondant"
   );
-
   // -----------activation de la recherchr---------------
   const [bookCart, setBookCart] = useState<Book_Cart[]>([]);
-
   const [count, setCount] = useState<number>(0);
-
   const [navpanier, setNav] = useState<boolean>(false);
+  const [ajout, setAjout] = useState<AjoutState>({});
 
   const setDataList = (bookdata: Book[]) => {
     setBookData(bookdata);
@@ -83,12 +81,20 @@ export const AppProvider = ({ children }: Props) => {
   const clearCart = () => {
     setBookCart([]);
     setCount(0);
+    setAjout({ [0]: false });
   };
 
   const setBookUpdate = (book :Book_Cart[])=>{
        setBookCart(book);
   }
 
+  const handleAdd= (item: string)=>{
+    setAjout({ ...ajout, [item]: true });
+ }
+
+ const displayButtonAdd = (item: string)=>{
+  setAjout({[item]:false});
+}
 
   useEffect(() => {}, []);
 
@@ -108,7 +114,8 @@ export const AppProvider = ({ children }: Props) => {
         Cartcount,
         Navtoogle,
         navpanier,
-        clearCart,setBookUpdate
+        clearCart,setBookUpdate,
+        ajout,handleAdd,displayButtonAdd
       }}
     >
       {children}
