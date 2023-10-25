@@ -13,6 +13,8 @@ export function BookPrices() {
         { title: "Harry Potter et le prisonnier d'Azkaban", price: 23.5 },
         { title: "De La guerre des boutons à Harry Potter", price: 13.4 },
         { title: "De La guerre des boutons à Harry Potter", price: 13.4 },
+        { title: "Harry Potter à l'école des sorciers de J. K. Rowling (Fiche de lecture)", price: 13.4 },
+        { title: "The Ivory Tower and Harry Potter", price: 28.50 },
 
       ];
 

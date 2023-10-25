@@ -8,9 +8,10 @@ import image from "./../../public/Babar, Harry Potter & Cie.jpg"
 import axios from 'axios';
 import { SearchInteraction } from '../../intercations_searchBar/SearchInteraction';
 import { BookPrices } from '../../bookPrices/BookPrices';
+import { scrollToList } from '../routes/scrollToList';
 
 const List_livres: React.FC = () => {
-   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount,handleAdd, ajout}= useApp();
+   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount,handleAdd, ajout,setSearch,scrollTop}= useApp();
    const {bookPrices} = BookPrices();
 
    const booksWithPrices = bookData.map((book) => {
@@ -186,6 +187,15 @@ const List_livres: React.FC = () => {
                 </article>
               </div>
             ))
+          )}
+
+          {clickedSearch && (
+            <div className="All text-center mt-5">
+              <button className="btn" onClick={()=>{setSearch("Harry Potter"); scrollTop()}}>
+                {" "}
+                <i className="fa fa-book flip"></i> Voir la liste de livres
+              </button>
+            </div>
           )}
         </div>
       </div>
