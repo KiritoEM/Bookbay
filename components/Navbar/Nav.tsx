@@ -1,20 +1,23 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "./../../public/Store.png";
 import 'font-awesome/css/font-awesome.min.css';
 import Link from "next/link";
 import { scrollToList } from "../routes/scrollToList";
 import { SearchInteraction } from "../../intercations_searchBar/SearchInteraction";
 import { useApp } from "../../hooks/Context/AppContext";
+import { useRouter } from "next/router";
 
 
 const Nav : React.FC = () => {
+  const router = useRouter();
+
+
   const { scroll } = scrollToList();
-  const {setSearch,setSearchtoogle, scrollTop} = useApp();
+  const {setSearch,setSearchtoogle, scrollTop, count, Navtoogle} = useApp();
 
   const [element,setElement]= useState("");
 
   //  --------------------------Search interaction------------------------------
-  // const [bookdata,setBookData]=useState
 
   const { Search_interaction } = SearchInteraction();
 
@@ -33,6 +36,22 @@ const Nav : React.FC = () => {
   const change=  (e:any) => {
       setSearch(e.target.value)
   }
+
+  // -------------navigation with useRouter--------------------
+
+  // const handleNavigation = () => {
+  //   router.push('/panier');
+  // };
+
+  // const [cartcount, setCount] = useState<number>(0);
+
+  // useEffect(() => {
+  //     const cartData = localStorage.getItem('bookCartcount');
+  //     if (cartData !== null) {
+  //         const parsedCount: number = JSON.parse(cartData);
+  //         setCount(parsedCount);
+  //     }
+  // }, []);
 
   
   return (
@@ -84,14 +103,14 @@ const Nav : React.FC = () => {
           </div>
 
           <div className="iconesHero">
-            <div className="iconesHero_container d-flex">
+            <div className="iconesHero_container d-flex" onClick={Navtoogle}>
               <div className="cart d-flex">
                 <span className="icon">
                   {" "}
                   <i className="fa fa-shopping-cart"></i>
                 </span>
                 <span className="count">
-                  <p>1</p>
+                  <p>{count}</p>
                 </span>
               </div>
 
@@ -107,9 +126,9 @@ const Nav : React.FC = () => {
         <div className="contain d-flex justify-content-center">
           <div className={`toggle ${open ? "open_" : "close_"}`}>
             <ul className="d-md-flex text-center">
-              <Link href="#" className="active" onClick={ClickItem}>
+              <a href="/" className="active" onClick={ClickItem}>
                 <li>Accueil</li>
-              </Link>
+              </a>
               <a
                 onClick={() => {
                   scroll();

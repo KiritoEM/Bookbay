@@ -6,4 +6,11 @@ export interface Book {
     image:string;
     description: string;
   }
+
+  export interface Book_Cart {
+    id: string;
+    title: string;
+    Price: number,
+  }
+
   

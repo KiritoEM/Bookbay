@@ -10,12 +10,12 @@ import { SearchInteraction } from '../../intercations_searchBar/SearchInteractio
 import { BookPrices } from '../../bookPrices/BookPrices';
 
 const List_livres: React.FC = () => {
-   const {bookData,searchValue,clickedSearch}= useApp();
+   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount}= useApp();
    const {bookPrices} = BookPrices();
 
    const booksWithPrices = bookData.map((book) => {
     const priceInfo = bookPrices.find((item) => item.title === book.title);
-    const price = priceInfo ? priceInfo.price : 'Prix non disponible';
+    const price = priceInfo ? priceInfo.price : 0;
   
     return {
       ...book,
@@ -26,6 +26,11 @@ const List_livres: React.FC = () => {
    const filteredBooks = booksWithPrices.filter((book) =>
       book.title.toLowerCase().includes(searchValue.toLowerCase())
  );
+
+const identification = (item: string) => {
+   console.log(item)
+};
+
 
 
   return (
@@ -82,7 +87,7 @@ const List_livres: React.FC = () => {
                       </div>
 
                       <div className="cart d-flex justify-content-center">
-                        <button className="btn">
+                        <button className="btn" onClick={Cartcount}>
                           Ajouter au panier{" "}
                           <i className="fa fa-shopping-cart"></i>
                         </button>
@@ -120,8 +125,14 @@ const List_livres: React.FC = () => {
                       <p>{book.description}</p>
                     </div>
 
-                    <div className="cart d-flex justify-content-center">
-                      <button className="btn">
+                    <div className="cart d-flex justify-content-center" onClick={Cartcount}>
+                      <button className="btn" onClick={()=>{addCart(
+                         {
+                          id: book.id,
+                          title: book.title,
+                          Price: book.price,
+                        }
+                      )}}>
                         Ajouter au panier{" "}
                         <i className="fa fa-shopping-cart"></i>
                       </button>

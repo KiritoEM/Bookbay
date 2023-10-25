@@ -1,13 +1,18 @@
-import { Book } from "./Types"
+import { Book , Book_Cart} from "./Types"
 
  interface Type_context {
      bookData: Book[],
-     setDataList: (bookdata:Book[])=> void,
-     bookDataAffichage: Book[],
      searchValue:string,
+     clickedSearch:boolean,
+     bookCart: Book_Cart[],
+     count: number,
+     navpanier: boolean,
+     setDataList: (bookdata:Book[])=> void,
      setSearch : (item: string)=> void,
      setSearchtoogle : ()=> void,
      scrollTop : ()=> void,
-     clickedSearch:boolean,
+     addCart: (bookdata:Book_Cart)=> void,
+     Cartcount: ()=> void,
+     Navtoogle: ()=> void,
   }
 export default Type_context;

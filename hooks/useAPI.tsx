@@ -5,7 +5,7 @@ import { useApp } from "./Context/AppContext";
 
 export function useAPI() {
   const { setDataList, bookData } = useApp();
-  const apiKey = "AIzaSyBOdoExLNhZIUinkDT_9k26ef8Yo70lxbE";
+  const apiKey = "AIzaSyCizMpgqpWhN_4cMHjIEL6WBpcJ7CdiLlA";
   const searchQuery = "harry potter";
 
   const cachedData = useMemo(() => {
