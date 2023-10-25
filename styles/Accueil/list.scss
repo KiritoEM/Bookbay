@@ -40,6 +40,17 @@
                               @include screen(small) {
                                     font-size: 33px;
                               }
+
+                              span {
+                                    font-size: 30px;
+                                    text-decoration: underline;
+                                    color: rgba(78, 78, 78, 0.918);
+                                    font-family: $font2;
+                        
+                                    @include screen(small) {
+                                          font-size: 26px;
+                                    }
+                              }
                         }
 
                        

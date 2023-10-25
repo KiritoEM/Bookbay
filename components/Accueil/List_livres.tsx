@@ -41,9 +41,15 @@ const List_livres: React.FC = () => {
                 </h2>
               </div>
 
-              <div className="maintitle">
-                <h1>Liste de livres disponibles</h1>
-              </div>
+              {clickedSearch ? (
+                <div className="maintitle">
+                  <h1>Résultats de la recherche pour : <span>"{searchValue}"</span></h1>
+                </div>
+              ) : (
+                <div className="maintitle">
+                  <h1>Liste de livres disponibles</h1>
+                </div>
+              )}
             </div>
           </div>
         </div>
@@ -191,7 +197,13 @@ const List_livres: React.FC = () => {
 
           {clickedSearch && (
             <div className="All text-center mt-5">
-              <button className="btn" onClick={()=>{setSearch("Harry Potter"); scrollTop()}}>
+              <button
+                className="btn"
+                onClick={() => {
+                  setSearch("Harry Potter");
+                  scrollTop();
+                }}
+              >
                 {" "}
                 <i className="fa fa-book flip"></i> Voir la liste de livres
               </button>
