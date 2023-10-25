@@ -96,7 +96,7 @@ const Panier: React.FC = () => {
                             </div>
 
                             <div className="prix">
-                              <h1>{item.Price} $</h1>
+                              <h1>{item.Price} €</h1>
                             </div>
                           </div>
                         </article>
@@ -116,7 +116,7 @@ const Panier: React.FC = () => {
                     </div>
 
                     <div className="prix">
-                      <p>{totalPrice}$</p>
+                      <p>{totalPrice} €</p>
                     </div>
 
                     <div className="payement">

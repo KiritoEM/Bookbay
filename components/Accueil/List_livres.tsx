@@ -64,7 +64,7 @@ const List_livres: React.FC = () => {
                         <img src={`/${book.title}.jpg`} alt="" />
                       </span>
                       <span className="prix d-flex justify-content-end">
-                        <h2>Prix: {book.price} $</h2>
+                        <h2>Prix: {book.price} €</h2>
                       </span>
                     </div>
 
@@ -130,7 +130,7 @@ const List_livres: React.FC = () => {
                       <img src={`/${book.title}.jpg`} alt="" />
                     </span>
                     <span className="prix d-flex justify-content-end">
-                      <h2>Prix: {book.price} $</h2>
+                      <h2>Prix: {book.price} €</h2>
                     </span>
                   </div>
 
