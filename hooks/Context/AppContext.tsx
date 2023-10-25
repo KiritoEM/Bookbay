@@ -82,6 +82,7 @@ export const AppProvider = ({ children }: Props) => {
 
   const clearCart = () => {
     setBookCart([]);
+    setCount(0);
   };
 
   const setBookUpdate = (book :Book_Cart[])=>{
