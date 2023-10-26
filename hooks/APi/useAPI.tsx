@@ -48,7 +48,7 @@ export function useAPI() {
         });
     }
     return bookData;
-  }, [setAPIData, bookData]);
+  }, []);
 
   return cachedData;
 }
