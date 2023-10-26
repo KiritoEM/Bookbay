@@ -7,7 +7,7 @@ export function useAPI() {
   const { setAPIData, bookData } = useApp();
 
   const cachedData = useMemo(() => {
-    const apiKey = process.env.NEXT_PUBLIC_API_KEY; 
+    const apiKey = "AIzaSyDJj52J76k16l9fTl3zYQTB15iK2m1MrV8"; 
     const searchQuery = "harry potter";
 
     // Si le tableau venant de AppContext bookData[] est vide
