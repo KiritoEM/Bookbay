@@ -29,8 +29,14 @@ export const useApp = () => {
 };
 
 export const AppProvider = ({ children }: Props) => {
-  const { clickedSearch, setSearch, setSearchtoogle, searchValue } =
-    SearchInteraction();
+  const {
+    clickedSearch,
+    setSearch,
+    setSearchtoogle,
+    searchValue,
+    cancelSearchToggle,
+  } = SearchInteraction();
+
   const {
     bookData,
     bookCart,
@@ -46,7 +52,7 @@ export const AppProvider = ({ children }: Props) => {
     handleButtonAdd,
   } = AddItem();
 
-  const {navpanier,setNav} = useNav();
+  const { navpanier, setNav } = useNav();
 
   const clearCart = () => {
     setBookCart([]);
@@ -85,6 +91,7 @@ export const AppProvider = ({ children }: Props) => {
         setSearch,
         clickedSearch,
         setSearchtoogle,
+        cancelSearchToggle,
         scrollTop,
         bookCart,
         addCart,

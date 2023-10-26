@@ -11,6 +11,7 @@ import { Book , Book_Cart, AjoutState} from "./Types"
    setAPIData: (bookdata: Book[]) => void;
    setSearch: (item: string) => void;
    setSearchtoogle: () => void;
+   cancelSearchToggle: () => void;
    scrollTop: () => void;
    addCart: (bookdata: Book_Cart) => void;
    Cartcount: () => void;

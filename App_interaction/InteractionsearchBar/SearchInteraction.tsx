@@ -14,7 +14,11 @@ export  function SearchInteraction() {
     const setSearchtoogle = () => {
       setClicked(true);
     };
+
+    const cancelSearchToggle = () => {
+      setClicked(false);
+    };
       
-   return {clickedSearch,searchValue,setSearch,setSearchtoogle};
+   return {clickedSearch,searchValue,setSearch,setSearchtoogle,cancelSearchToggle};
   
 }

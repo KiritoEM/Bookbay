@@ -12,7 +12,6 @@ export  function NavInteraction() {
         setOpen(false);
       };
       
-    
      return {handleClick,ClickItem,open}
     
 }

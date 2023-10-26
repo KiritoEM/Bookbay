@@ -13,6 +13,7 @@ export default function Document() {
         <meta name="keywords" content="Site web de vente de livre en ligne" />
         <meta name="author" content="Votre nom" />
         <meta name="robots" content="index, follow"></meta>
+        <link rel="icon" href="/Store.png" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

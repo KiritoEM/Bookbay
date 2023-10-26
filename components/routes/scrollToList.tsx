@@ -14,9 +14,5 @@ export function scrollToList() {
         }
       };
 
-       const functionName = () => {
-        
-       };
-      
       return {scroll}
 }

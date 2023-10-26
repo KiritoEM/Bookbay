@@ -11,7 +11,20 @@ import { BookPrices } from '../../bookPrices/BookPrices';
 import { scrollToList } from '../routes/scrollToList';
 
 const List_livres: React.FC = () => {
-   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount,handleButtonAdd, ajout,setSearch,scrollTop}= useApp();
+   const {
+     bookData,
+     searchValue,
+     clickedSearch,
+     addCart,
+     count,
+     Cartcount,
+     handleButtonAdd,
+     ajout,
+     setSearch,
+     scrollTop,
+     cancelSearchToggle
+   } = useApp();
+
    const {bookPrices} = BookPrices();
 
    const booksWithPrices = bookData.map((book) => {
@@ -201,7 +214,8 @@ const List_livres: React.FC = () => {
                 className="btn"
                 onClick={() => {
                   setSearch("Harry Potter");
-                  scrollTop();
+                  scroll();
+                  cancelSearchToggle()
                 }}
               >
                 {" "}
