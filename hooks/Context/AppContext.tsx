@@ -5,10 +5,13 @@ import React, {
   ReactNode,
   useEffect,
 } from "react";
-import { Book, Book_Cart ,AjoutState } from "../../typescript/Types";
+import { Book, Book_Cart, AjoutState } from "../../typescript/Types";
 import Type_context from "../../typescript/Context_type";
-import { useAPI } from "../useAPI";
-import { SearchInteraction } from "../../intercations_searchBar/SearchInteraction";
+import { useAPI } from "../APi/useAPI";
+import { SearchInteraction } from "../../App_interaction/InteractionsearchBar/SearchInteraction";
+import { AddItem } from "../../App_interaction/Cart_interaction/AddItem";
+import { deleteItem } from "../../App_interaction/Cart_interaction/deleteItem";
+import { useNav } from "../CustomHooks/useNav";
 
 type Props = {
   children: ReactNode;
@@ -26,57 +29,24 @@ export const useApp = () => {
 };
 
 export const AppProvider = ({ children }: Props) => {
-  // -----------données via API---------------
-  const [bookData, setBookData] = useState<Book[]>([]);
+  const { clickedSearch, setSearch, setSearchtoogle, searchValue } =
+    SearchInteraction();
+  const {
+    bookData,
+    bookCart,
+    count,
+    setAPIData,
+    addCart,
+    Cartcount,
+    setBookCart,
+    setCount,
+    setBookData,
+    ajout,
+    setAjout,
+    handleButtonAdd,
+  } = AddItem();
 
-  // -----------activation de la recherchr---------------
-  const [clickedSearch, setClicked] = useState(false);
-
-  // --------------------------valeur entrée dans la barre de recherche----------------------
-  const [searchValue, setSearchValue] = useState<string>(
-    "Aucun livre correspondant"
-  );
-  // -----------activation de la recherchr---------------
-  const [bookCart, setBookCart] = useState<Book_Cart[]>([]);
-  const [count, setCount] = useState<number>(0);
-  const [navpanier, setNav] = useState<boolean>(false);
-  const [ajout, setAjout] = useState<AjoutState>({});
-
-  const setDataList = (bookdata: Book[]) => {
-    setBookData(bookdata);
-    console.log("donnés recu depuis useAPI: ", bookData);
-  };
-
-  const setSearch = (item: string) => {
-    setSearchValue(item);
-  };
-
-  const setSearchtoogle = () => {
-    setClicked(true);
-    console.log(clickedSearch);
-  };
-
-  const scrollTop = () => {
-    window.scrollTo(0, 0);
-  };
-
-  const addCart = (bookdata: Book_Cart) => {
-    const updatedCart = [...bookCart, bookdata];
-    setBookCart(updatedCart);
-    // ---------------envoie dee données du panier vers localstorage en le transformant en code json----------------------
-    localStorage.setItem("bookCart", JSON.stringify(updatedCart));
-
-    console.log("Livre ajouté", bookdata);
-    console.log("Nouveau panier", updatedCart);
-  };
-
-  const Cartcount = () => {
-    setCount(count + 1);
-  };
-
-  const Navtoogle = () => {
-    setNav(!navpanier);
-  };
+  const {navpanier,setNav} = useNav();
 
   const clearCart = () => {
     setBookCart([]);
@@ -84,28 +54,32 @@ export const AppProvider = ({ children }: Props) => {
     setAjout({ [0]: false });
   };
 
-  const setBookUpdate = (book :Book_Cart[])=>{
-       setBookCart(book);
-  }
+  const scrollTop = () => {
+    window.scrollTo(0, 0);
+  };
 
-  const handleAdd= (item: string)=>{
-    setAjout({ ...ajout, [item]: true });
- }
+  const Navtoogle = () => {
+    setNav(!navpanier);
+  };
 
- const displayButtonAdd = (item: string)=>{
-  setAjout({...ajout,[item]:false});
-}
+  const setBookUpdate = (book: Book_Cart[]) => {
+    setBookCart(book);
+  };
 
-const deleteOne = ()=>{
-  setCount(count-1);
-}
+  const displayButtonAdd = (item: string) => {
+    setAjout({ ...ajout, [item]: false });
+  };
+
+  const deleteOne = () => {
+    setCount(count - 1);
+  };
 
   useEffect(() => {}, []);
 
   return (
     <AppContext.Provider
       value={{
-        setDataList,
+        setAPIData,
         bookData,
         searchValue,
         setSearch,
@@ -122,7 +96,7 @@ const deleteOne = ()=>{
         clearCart,
         setBookUpdate,
         ajout,
-        handleAdd,
+        handleButtonAdd,
         displayButtonAdd,
       }}
     >
@@ -134,6 +108,5 @@ const deleteOne = ()=>{
 
 function BooksProvider() {
   useAPI();
-
   return null;
 }

@@ -6,12 +6,12 @@ import { useApp } from '../../hooks/Context/AppContext';
 import { AjoutState} from '../../typescript/Types';
 import image from "./../../public/Babar, Harry Potter & Cie.jpg"
 import axios from 'axios';
-import { SearchInteraction } from '../../intercations_searchBar/SearchInteraction';
+import { SearchInteraction } from '../../App_interaction/InteractionsearchBar/SearchInteraction';
 import { BookPrices } from '../../bookPrices/BookPrices';
 import { scrollToList } from '../routes/scrollToList';
 
 const List_livres: React.FC = () => {
-   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount,handleAdd, ajout,setSearch,scrollTop}= useApp();
+   const {bookData,searchValue,clickedSearch,addCart,count,Cartcount,handleButtonAdd, ajout,setSearch,scrollTop}= useApp();
    const {bookPrices} = BookPrices();
 
    const booksWithPrices = bookData.map((book) => {
@@ -31,7 +31,7 @@ const List_livres: React.FC = () => {
 
   return (
     <div className={`w-100 list ${clickedSearch ? "down" : "up"}`}>
-      <div className="list_container">
+      <div className="list__container">
         <div className="row" id="title">
           <div className="col-12  d-flex justify-content-center" id="List">
             <div className="titre_list text-center">
@@ -66,7 +66,7 @@ const List_livres: React.FC = () => {
               filteredBooks.map((book) => (
                 <div className="col-md-6 col-lg-4" key={book.id}>
                   <article className="box bg-light">
-                    <div className="box_image">
+                    <div className="box__image">
                       <span className="image">
                         <img src={`/${book.title}.jpg`} alt="" />
                       </span>
@@ -75,7 +75,7 @@ const List_livres: React.FC = () => {
                       </span>
                     </div>
 
-                    <div className="box_content">
+                    <div className="box__content">
                       <div className="titre_auth">
                         <div className="titre">
                           <h1>
@@ -102,7 +102,7 @@ const List_livres: React.FC = () => {
                           <div
                             onClick={() => {
                               Cartcount();
-                              handleAdd(book.id);
+                              handleButtonAdd(book.id);
                             }}
                             className=""
                           >
@@ -132,7 +132,7 @@ const List_livres: React.FC = () => {
             booksWithPrices.map((book) => (
               <div className="col-md-6 col-lg-4" key={book.id}>
                 <article className="box bg-light">
-                  <div className="box_image">
+                  <div className="box__image">
                     <span className="image">
                       <img src={`/${book.title}.jpg`} alt="" />
                     </span>
@@ -141,7 +141,7 @@ const List_livres: React.FC = () => {
                     </span>
                   </div>
 
-                  <div className="box_content">
+                  <div className="box__content">
                     <div className="titre_auth">
                       <div className="titre">
                         <h1>
@@ -168,7 +168,7 @@ const List_livres: React.FC = () => {
                         <div
                           onClick={() => {
                             Cartcount();
-                            handleAdd(book.id);
+                            handleButtonAdd(book.id);
                           }}
                           className=""
                         >

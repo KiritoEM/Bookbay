@@ -1,11 +1,14 @@
 import React from 'react'
 import Nav from '../components/Navbar/Nav';
-import Welcoming_page from '../components/Accueil/Welcoming_page';
+import Welcoming_page from '../components/Accueil/WelcomingPage';
 import Suggestion_livres from '../components/Accueil/List_livres';
 import Head from 'next/head';
 import { AppProvider } from '../hooks/Context/AppContext';
 import Footer from '../components/footer/Footer';
 import Panier from '../components/panier/Panier';
+import dotenv from "dotenv";
+dotenv.config();
+
 
 export default function page() {
   return (

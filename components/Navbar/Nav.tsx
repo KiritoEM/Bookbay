@@ -3,40 +3,20 @@ import Logo from "./../../public/Store.png";
 import 'font-awesome/css/font-awesome.min.css';
 import Link from "next/link";
 import { scrollToList } from "../routes/scrollToList";
-import { SearchInteraction } from "../../intercations_searchBar/SearchInteraction";
+import { SearchInteraction } from "../../App_interaction/InteractionsearchBar/SearchInteraction";
 import { useApp } from "../../hooks/Context/AppContext";
 import { useRouter } from "next/router";
-
+import {NavInteraction} from "../../App_interaction/NavInteraction/NavInteraction";
 
 const Nav : React.FC = () => {
-  const router = useRouter();
-
+const {ClickItem,handleClick,open}= NavInteraction();
 
   const { scroll } = scrollToList();
   const {setSearch,setSearchtoogle, scrollTop, count, Navtoogle} = useApp();
 
-  const [element,setElement]= useState("");
-
-  //  --------------------------Search interaction------------------------------
-
-  const { Search_interaction } = SearchInteraction();
-
-  //   --------------------Navbar toggle-------------------------------------
-
-  const [open, setOpen] = useState<boolean>(false);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
-  const ClickItem = () => {
-    setOpen(false);
-  };
-
   const change=  (e:any) => {
-      setSearch(e.target.value)
+    setSearch(e.target.value)
   }
-
   // -------------navigation with useRouter--------------------
 
   // const handleNavigation = () => {

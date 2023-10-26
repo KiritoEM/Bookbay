@@ -3,7 +3,7 @@
       padding-bottom: 3rem;
       background-color: rgb(236, 234, 234);
 
-      &_container {
+      &__container {
             max-width: 90%;
             margin-left: 4.8%;
 
@@ -72,7 +72,7 @@
                               width: 100%;
                         }
 
-                        &_image {
+                        &__image {
                               height: 21rem;
                               overflow: hidden;
 
@@ -101,7 +101,7 @@
                               }
                         }
 
-                        &_content {
+                        &__content {
                               margin-top: 1.3rem;
                               padding-left: 27px;
                               padding-right: 20px;

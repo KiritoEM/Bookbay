@@ -8,7 +8,7 @@ import { Book , Book_Cart, AjoutState} from "./Types"
    count: number;
    navpanier: boolean;
    ajout: AjoutState;
-   setDataList: (bookdata: Book[]) => void;
+   setAPIData: (bookdata: Book[]) => void;
    setSearch: (item: string) => void;
    setSearchtoogle: () => void;
    scrollTop: () => void;
@@ -17,7 +17,7 @@ import { Book , Book_Cart, AjoutState} from "./Types"
    Navtoogle: () => void;
    clearCart: () => void;
    setBookUpdate: (book: Book_Cart[]) => void;
-   handleAdd: (item_ID: string) => void;
+   handleButtonAdd: (item_ID: string) => void;
    displayButtonAdd: (item_ID: string) => void;
    deleteOne: () => void;
  }

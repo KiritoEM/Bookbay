@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import img from "./../../public/Harry Potter et l'Ordre du Phénix.jpg";
 import { useApp } from "../../hooks/Context/AppContext";
 import { Book_Cart } from "../../typescript/Types";
+import { deleteItem } from "../../App_interaction/Cart_interaction/deleteItem";
 
 const Panier: React.FC = () => {
   const {
@@ -13,7 +14,7 @@ const Panier: React.FC = () => {
     deleteOne,
   } = useApp();
 
-  const [CartData, setCartData] = useState<Book_Cart[]>(bookCart);
+  const {deletePanierItem} = deleteItem();
 
   const Price = bookCart.reduce((total, book) => total + book.Price, 0);
   const totalPrice = Number(Price.toFixed(1));
@@ -26,14 +27,6 @@ const Panier: React.FC = () => {
   //         setParsedCartData(parsedData);
   //     }
   // }, [parsedCartData]);
-
-  const deletePanierItem = (item_ID: string) => {
-    const updatedCart = bookCart.filter(
-      (cartItem: Book_Cart) => cartItem.id !== item_ID
-    );
-    setBookUpdate(updatedCart);
-    displayButtonAdd(item_ID);
-  };
 
   return (
     <div className={`panier ${navpanier ? "show_" : "hide_"}`}>
